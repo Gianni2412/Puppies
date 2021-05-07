@@ -34,7 +34,51 @@
         a:link{
             color: white;
         }
+        /* Bienvenidos*/
+        .section-1 {
+            padding: 20vmin 0vmin;
+            color:#2C492F ;
+        }
 
+        .section-1 .row .col-md-6 .imagen img {
+            opacity: 0.8;
+            width: 100%;
+            border-radius: 0.2em;
+        }
+        .section-1 .row .col-md-6:last-child {
+            position:relative;
+        }
+
+        .section-1 .row .col-md-6 .panel {
+            position: absolute;
+            top: 4vmin;
+            left: -7vmin;
+            bottom: 4vmin;
+            background: white;
+            border-radius: 3px;
+            text-align: left;
+            padding:10vmin 5vmin 20vmin 10vmin;
+            box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.2);
+            font-family: var(--Rubik);
+            z-index: 1;
+        }
+        .section-1 .row .col-md-6 .panel p {
+            font-weight: bolder;
+            font-size: 0.9em;
+            color: #2C492F;
+        }
+        /*Servicios*/
+        .card > img{
+            height: 250px;
+            opacity: 0.6;
+
+        }
+        .card-block{
+            background: #B0CDB0;
+        }
+        .card-block  h6{
+            color:#2C492F;
+        }
     </style>
 </head>
 <body>
@@ -109,6 +153,75 @@
               </div>
           </div>
     </section>
+    <!--Bienvenidos-->
+     <section class="section-1">
+        <div class="container text-center">
+            <h2>Bienvenidos a la clinica Veterinaria Puppies Pet <i class="fas fa-paw"></i></h2><br>
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div class="imagen">
+                <img src="Imagenes/perroygato.jpg" alt="Perros" class="" />
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="panel text-left">
+                <p>
+                    Dedicados a la Medicina y cirugía desde su fundación, fue conocida por el desarrollo de nuevas técnicas y herramientas quirúrgicas y de rehabilitación, que permitieron ser una Clínica Veterinaria referente en el País y diferenciarse con propuestas innovadoras, como fue la silla de ruedas para mascotas....
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!--Servicios-->
+      <section class="section-2">
+      <div class="container text-center">
+          <h2>Nuestros Servicios</h2><br>
+          <div class="row">
+              <div class="col-md-3 col-sm-6">
+                  <div class="card">
+                        <img class="card-img-top img-fluid" src="Imagenes/serviciosgenerales.jpg">
+                        <div class="card-block">
+                            <div class="card-title text-center">
+                              <h6>Servicios Generales</h6>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="card">
+                      <img class="card-img-top img-fluid" src="Imagenes/groomingpets.jpg">
+                      <div class="card-block">
+                          <div class="card-title text-center">
+                            <h6>Grooming Pet</h6>
+                          </div>
+                      </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                      <img class="card-img-top img-fluid" src="Imagenes/Examenes.png">
+                      <div class="card-block">
+                          <div class="card-title text-center">
+                            <h6>Examenes Complementarios</h6>
+                          </div>
+                      </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                      <img class="card-img-top img-fluid" src="Imagenes/Farmacia.jpg">
+                      <div class="card-block">
+                          <div class="card-title text-center">
+                            <h6>FarmaciaPet</h6>
+                          </div>
+                      </div>
+                </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
 
     
     
