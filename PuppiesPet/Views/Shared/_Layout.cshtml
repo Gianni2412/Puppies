@@ -13,43 +13,67 @@
     <title>@ViewData["Title"] PuppiesPet</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+         /*Footer*/
+        footer {
+            background: #4A684A;
+            overflow-x: hidden;
+            padding: 14vmin 18vmin;
+        }
+
+        footer p > span {
+            color: white;
+        }
+
+        footer input {
+            border: none !important;
+        }
+
+        footer input::placeholder {
+            color: white !important;
+        }
+
+        footer .input-group .input-group-text {
+        background: var(--bggradient);
+        border: none;
+        }
+
+        footer .column i {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
-    <header style="background-color: #64af8b;">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm  box-shadow " style="background-color: #64af8b ;">
-            <div class="container" style="background-color:#64af8b ;">
-                <div class="logo p-2">
-                    <h1 class="text-light"><a asp-controller="Home" asp-action="Index">PuppiesPet<span>♡</span></a></h1>
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-success border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">PuppiesPet</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Nosotros</a>
+                        </li>
+                        <li class="nav-item center">
+                            <a class="nav-link text-white" class="center" asp-controller="Servicios" asp-action="Index">Servicio</a>
+                        </li>
+                        <li class="nav-item center">
+                            <a class="nav-link text-white" class="center" asp-controller="Contacto" asp-action="Index">Contactenos</a>
+                        </li>
+                        <li class="nav-item center">
+                            <a class="nav-link text-white" class="center" asp-controller="Adopciones" asp-action="Index">Adopciones</a>
+                        </li>
+                        <li class="nav-item center">
+                            <a class="nav-link text-white" class="center" asp-controller="Farmacia" asp-action="Index">Farmacia</a>
+                        </li>
 
-                        <li class="nav-item center">
-                            <a class="nav-link colorLetter" class="center" asp-controller="Home"
-                                asp-action="Index">Nosotros</a>
-                        </li>
-                        <li class="nav-item center">
-                            <a class="nav-link colorLetter" class="center" asp-controller="Servicios"
-                                asp-action="Index">Servicio</a>
-                        </li>
-                        <li class="nav-item center">
-                            <a class="nav-link colorLetter" class="center" asp-controller="Contacto"
-                                asp-action="Index">Contactenos</a>
-                        </li>
-                        <li class="nav-item center">
-                            <a class="nav-link colorLetter" class="center" asp-controller="Adopciones"
-                                asp-action="Index">Adopciones</a>
-                        </li>
-                        <li class="nav-item center">
-                            <a class="nav-link colorLetter" class="center" asp-controller="Farmacia"
-                                asp-action="Index">Farmacia</a>
-                        </li>
 
                         <li class="nav-item center">
                             <a class="nav-link colorLetter" class="center" asp-controller="Usuario"
@@ -64,12 +88,13 @@
 
 
 
+
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-
 
 
 
@@ -79,32 +104,46 @@
             @RenderBody()
         </main>
     </div>
+    <footer class="border-top footer text-muted">
+        <!--footer-->
 
-
-
-
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container" data-aos="fade-up">
-                <div class="row  justify-content-center">
-                    <div class="col-lg-6">
-                        <p>PuppiesPet Lima-Perú</p>
-                        <p>Clinica Veterinaria 2021</p>
-                        </p>
-                        <p>Atendemos las 24 horas</p>
+      <div class="container-fluid p-0">
+        <div class="row text-left">
+          <div class="col-md-5 col-sm-5">
+            <p class=" text-white">Clínica: Av.Miraflores 2356</p>
+            <p class=" text-white">2854512 / 995458745</p>
+            <p class="pt-4  text-white" >Copyright ©2021 Clínica Veterinaria Puppies Pet | Todos los derechos Reservados
+            </p>
+          </div>
+          <div class="col-md-5 col-sm-12">
+            <h4 class="text-light text-white">Suscribete</h4>
+            <p class=" text-white">Recibe nuestras ultimas novedades</p>
+            <p class=" text-white">Correo Electrónico:</p>
+            <form class="form-inline">
+              <div class="col pl-0">
+                <div class="input-group pr-5">
+                  <input type="text" class="form-control bg-dark text-white" id="inlineFormInputGroupUsername2" placeholder="Email">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fas fa-arrow-right"></i>
                     </div>
+                  </div>
                 </div>
-                <div class="social-links">
-                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                </div>
-
-                <div class="container footer-bottom clearfix">
-                    <div class="copyright">
-                        &copy; Copyright. Todos los derechos reservados
-                    </div>
-                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-2 col-sm-12">
+            <h4 class="text-light">Síguenos</h4>
+            <div class="column text-light">
+              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-youtube"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    
     </footer>
 
 
