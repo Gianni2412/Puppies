@@ -73,6 +73,22 @@
                         <li class="nav-item center">
                             <a class="nav-link text-white" class="center" asp-controller="Farmacia" asp-action="Index">Farmacia</a>
                         </li>
+
+
+                        <li class="nav-item center">
+                            <a class="nav-link colorLetter" class="center" asp-controller="Usuario"
+                                asp-action="Login">Iniciar sesion</a>
+                        </li>
+                        <li class="nav-item center">
+                            <a class="nav-link colorLetter" class="center" asp-controller="Usuario"
+                                asp-action="Registro">Registrarse</a>
+                        </li>
+
+                        <partial name="_MenuPartial" />
+
+
+
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
