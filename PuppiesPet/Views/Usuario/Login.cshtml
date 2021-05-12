@@ -3,7 +3,6 @@
 @inject UserManager<IdentityUser> UserManager
 @{
     ViewData["Title"] = "Iniciar Sesión";
-    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 
@@ -26,59 +25,54 @@
     <title>@ViewData["Title"] PuppiesPet</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/estilos.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+
 
 </head>
 
 <body>
-   
-<section>
-   <div class="imgBx">
-    <img src="https://www.wallpapertip.com/wmimgs/30-309223_cute-cat-full-hd-1080p-wallpaper-data-src.jpg">
 
-   </div>
+    <section>
+        <div class="imgBx">
+            <img src="https://www.wallpapertip.com/wmimgs/30-309223_cute-cat-full-hd-1080p-wallpaper-data-src.jpg">
 
-   <div class="contentBx">
-       <div class="formBx">
-           <h2>Iniciar Sesion</h2>
-           <form>
-               <div class="inputBx">
-                   <span>Correo Electronico</span>
-                   <input type="text" name="">
-               </div>
+        </div>
 
-               <div class="inputBx">
-                   <span>Contraseña</span>
-                   <input type="password" name="">
-               </div>
-               <div class="remember">
-                   <label><input type="checkbox" name="">Recordar mi contraseña</label>
+        <div class="contentBx">
+            <div class="formBx">
+                <h2>Iniciar Sesion</h2>
+                <form>
+                    <div class="inputBx">
+                        <span>Correo Electronico</span>
+                        <input type="text" name="">
+                    </div>
 
-                </div>
-                <div class="inputBx">
-                    <input type="submit" value="Ingresar" name="">
-                </div>
+                    <div class="inputBx">
+                        <span>Contraseña</span>
+                        <input type="password" name="">
+                    </div>
+                    <div class="remember">
+                        <label><input type="checkbox" name="">Recordar mi contraseña</label>
 
-                <div class="inputBx">
-                    <p>¿Eres nuevo? <a href="#">Registrate</a></p>
-                </div>
-           </form>
-           <h3>Siguenos en nuestras redes sociales</h3>
-           <ul class="sci" >
-             <li> <i class="bi bi-facebook"></i></li>
-             <li> <i class="bi bi-instagram"></i></li>
-             <li> <i class="bi bi-linkedin"></i></li>
+                    </div>
+                    <div class="inputBx">
+                        <input type="submit" value="Ingresar" name="">
+                    </div>
 
-
-           </ul>
-   </div>
-
-</section>
+                    <div class="inputBx">
+                        <p>¿Eres nuevo? <a href="#">Registrate</a></p>
+                    </div>
+                </form>
+                <h1>Siguenos</h1>
+                <ul class="sci">
+                    <li> <i class="bi bi-facebook"></i></li>
+                    <li> <i class="bi bi-instagram"></i></li>
+                    <li> <i class="bi bi-linkedin"></i></li>
 
 
+                </ul>
+            </div>
 
-
-
+    </section>
 
 
 
