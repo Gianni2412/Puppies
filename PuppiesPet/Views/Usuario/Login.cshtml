@@ -3,6 +3,7 @@
 @inject UserManager<IdentityUser> UserManager
 @{
     ViewData["Title"] = "Iniciar Sesión";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 
@@ -24,69 +25,76 @@
     <link href="~/lib/boxicons/css/boxicons.min.css" rel="stylesheet">
     <title>@ViewData["Title"] PuppiesPet</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/estilos.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
 
 <body>
-    <style>
-        body {
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-image: url("https://zoovetesmipasion.com/wp-content/uploads/2018/01/retos-de-los-veterinarios-ante-el-mundo.png");
-        }
-    </style>
+   
+<section>
+   <div class="imgBx">
+    <img src="https://www.wallpapertip.com/wmimgs/30-309223_cute-cat-full-hd-1080p-wallpaper-data-src.jpg">
 
+   </div>
 
-    <div class="container">
-        <div class="col-md-6 mx-auto text-center">
-            <div class="header-title">
-                <h1 class="wv-heading--title">
-                    Iniciar Sesion
-                </h1>
-                <h2 class="wv-heading--subtitle">
-                    Complete los espacios requeridos
-                </h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 mx-auto">
-                <div class="myform form ">
-                    <form action="" method="post" name="login">
+   <div class="contentBx">
+       <div class="formBx">
+           <h2>Iniciar Sesion</h2>
+           <form>
+               <div class="inputBx">
+                   <span>Correo Electronico</span>
+                   <input type="text" name="">
+               </div>
 
-                        <div class="form-group">
-                            <input type="email" name="email" class="form-control my-input" id="email"
-                                placeholder="Correo electronico">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" min="0" name="password" id="password" class="form-control my-input"
-                                placeholder="Contraseña">
-                        </div>
-                        <div class="text-center ">
-                            <button type="submit" class=" btn btn-block send-button tx-tfm">Ingresar</button>
-                        </div>
-                        <div class="col-md-12 ">
-                            <div class="login-or">
-                                <hr class="hr-or">
-                                <span class="span-or">o</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <a class="btn btn-block g-button" asp-controller="Usuario"
-                                asp-action="Registro">
-                               Registrate Gratis!
-                            </a>
-                        </div>
-                        <p class="small mt-3">
-                            <a href="#" class="ps-hero__content__link" colorLetter="blue">Terminos de uso</a> y <a
-                                href="#" colorLetter="blue">Politica de
-                                Privacidad</a>.
-                        </p>
-                    </form>
+               <div class="inputBx">
+                   <span>Contraseña</span>
+                   <input type="password" name="">
+               </div>
+               <div class="remember">
+                   <label><input type="checkbox" name="">Recordar mi contraseña</label>
+
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="inputBx">
+                    <input type="submit" value="Ingresar" name="">
+                </div>
+
+                <div class="inputBx">
+                    <p>¿Eres nuevo? <a href="#">Registrate</a></p>
+                </div>
+           </form>
+           <h3>Siguenos en nuestras redes sociales</h3>
+           <ul class="sci" >
+             <li> <i class="bi bi-facebook"></i></li>
+             <li> <i class="bi bi-instagram"></i></li>
+             <li> <i class="bi bi-linkedin"></i></li>
+
+
+           </ul>
+   </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
