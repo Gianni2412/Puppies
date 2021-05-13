@@ -12,5 +12,7 @@ namespace PuppiesPet.Data
             : base(options)
         {
         }
+
+         public DbSet<PuppiesPet.Models.Contacto> DataUsuarios { get; set; }
     }
 }
