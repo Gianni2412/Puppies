@@ -13,6 +13,6 @@ namespace PuppiesPet.Data
         {
         }
 
-         public DbSet<PuppiesPet.Models.Contacto> DataUsuarios { get; set; }
+        public DbSet<PuppiesPet.Models.Usuario> DataUsuarios { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+/*login*/
 * {
   margin: 0;
   padding: 0;
@@ -45,7 +46,6 @@ section .contentBx {
 }
 
 section .contentBx .formBx {
-  width: 50%;
   width: 50%;
   height: 100%;
   position: relative;
@@ -179,14 +179,15 @@ section .contentBx .formBx .sci li:hover {
   }
 }
 
+/*foooter*/
 
 footer {
-  background: #4A684A;
+  background: #4a684a;
   overflow-x: hidden;
   padding: 14vmin 18vmin;
 }
 
-footer p>span {
+footer p > span {
   color: white;
 }
 
@@ -205,4 +206,33 @@ footer .input-group .input-group-text {
 
 footer .column i {
   color: white;
+}
+
+/*registro*/
+
+section .imagenBx {
+  position: relative;
+  width: 20%;
+  height: 100%;
+}
+
+section .imagenBx:before{
+  content:"";
+}
+
+
+section .conteinerBx {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section .conteinerBx .formuBx {
+  width: 80%;
+  height: 100%;
+  position: relative;
+  padding: 40px;
+}
+
+section .conteinerBx .formuBx h2 {
 }
