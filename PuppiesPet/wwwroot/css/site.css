@@ -59,6 +59,7 @@ button.accept-policy {
 html {
   position: relative;
   min-height: 100%;
+  max-width: 100%;
 }
 
 /* footer real
@@ -67,6 +68,7 @@ footer {
   background: #4a684a;
   overflow-x: hidden;
   padding: 14vmin 18vmin;
+  margin-top: 15%;
 }
 
 footer p > span {
