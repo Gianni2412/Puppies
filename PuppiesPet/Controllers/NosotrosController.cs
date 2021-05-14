@@ -9,11 +9,11 @@ using PuppiesPet.Models;
 
 namespace PuppiesPet.Controllers
 {
-    public class AdopcionesController : Controller
+    public class NosotrosController : Controller
     {
-        private readonly ILogger<AdopcionesController> _logger;
+        private readonly ILogger<NosotrosController> _logger;
 
-        public AdopcionesController(ILogger<AdopcionesController> logger)
+        public NosotrosController(ILogger<NosotrosController> logger)
         {
             _logger = logger;
         }
