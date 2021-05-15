@@ -24,6 +24,11 @@ namespace PuppiesPet.Controllers
         }
 
 
-      
+        public IActionResult Reservar()
+        {
+            return View();
+        }
+
+
     }
 }
