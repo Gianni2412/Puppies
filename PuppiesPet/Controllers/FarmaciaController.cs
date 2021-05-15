@@ -18,7 +18,7 @@ namespace PuppiesPet.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Catalogo()
         {
             return View();
         }
