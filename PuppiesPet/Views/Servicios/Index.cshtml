@@ -1,7 +1,6 @@
 @{
     ViewData["Title"] = "Home Page";
-
-
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -25,27 +24,9 @@
             /*color:#64AF8B;   */
             color: white;
         }
-
-        #servicios-generales {
-            background-image: url("imagenes/medicos.jpg");
-            background-color: rgba(6, 32, 51, .8);
-            background-attachment: fixed !important;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: 0;
-        }
-
-        .facts .devider:before,
-        .facts .devider:after {
-            color: #737C85;
-
-        }
-
         .parallax-overlay {
             background-color: rgba(6, 32, 51, .8);
             padding: 50px 0;
-
         }
 
         .card>img {
@@ -74,7 +55,7 @@
     <!-- Sección-Servicios-->
     <section id="serviciosgenerales" class="section-1">
         <div class="parallax-overlay">
-            <div class="container text-center">
+            <div class="container-fluid text-center">
                 <h1>Servicios Generales</h1><br>
             </div>
         </div>
