@@ -27,12 +27,21 @@
 
         /*Section0*/
         .section-0 .entrada {
-            background: #70AD70;
             display: inline-block;
             border-radius: 3em;
             padding: 2vmin 4.5vmin;
             margin: 1em;
             color: whitesmoke;
+        }
+        .section-0 .entrada1{
+            background: #797D7F;
+            opacity:0.85;
+        }
+        .section-0 .entrada2{
+            background: #70AD70;
+        }
+        .section-0 .entrada3{
+            background: #797D7F;
         }
 
         .section-0 .entrada h3 {
@@ -51,7 +60,7 @@
         /* Bienvenidos*/
         .section-1 {
             padding: 10vmin 0vmin;
-            color: #2C492F;
+            color: #64AF8B ;
         }
 
         .section-1 .row .col-md-6 .imagen img {
@@ -69,12 +78,11 @@
             top: 4vmin;
             left: -7vmin;
             bottom: 4vmin;
-            background: white;
+            background: #BAE8D2;
             border-radius: 3px;
             text-align: left;
             padding: 10vmin 5vmin 20vmin 10vmin;
             box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.2);
-            font-family: var(--Rubik);
             z-index: 1;
         }
 
@@ -85,6 +93,23 @@
         }
 
         /*Servicios*/
+        .section-2 .container h1{
+            color:#64AF8B;
+        }
+        #servicios {
+	        background-image: url("Imagenes/medicos.jpg");
+	        background-color: rgba(6,32,51,.8);
+	        background-attachment: fixed !important;
+	        background-position: center center;
+	        background-repeat: no-repeat;
+	        background-size: cover;
+	        padding: 0;
+        }
+
+        .parallax-overlay {
+	        background-color: rgba(6,32,51,.8);
+	        padding: 70px 0;
+        }
         .card>img {
             height: 250px;
             opacity: 0.6;
@@ -110,16 +135,24 @@
         .Contactanos .titulo {
             color: white;
         }
+        .Contactanos button{
+            background-color: #B7F8D8;
+            font-weight: bold;
+        }
+        .Contactanos input{
+            background-color:#2C492F;
+            opacity: 0.35;
+        }
     </style>
 </head>
 
 <body>
 
-    <section class="section-0">
+    <section class="section-0 pt-5">
 
         <div class="platform row">
             <div class="col-md-4 col-sm-8 text-right">
-                <div class="entrada shadow-lg">
+                <div class="entrada entrada1 shadow-lg">
                     <div class="d-flex flex-row justify-content-center">
                         <i class="fas fa-map-marked-alt fa-3x py-2 pr-3"></i>
                         <div class="text text-left">
@@ -140,7 +173,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-8 text-left">
-                <div class="entrada shadow-lg">
+                <div class="entrada entrada3 shadow-lg">
                     <div class="d-flex flex-row justify-content-center">
                         <i class="fas fa-dog fa-3x py-2 pr-3"></i>
                         <div class="text text-left">
@@ -155,7 +188,7 @@
     <!--Bienvenidos-->
     <section class="section-1">
         <div class="container text-center">
-            <h2>Bienvenidos a la Clínica Veterinaria Puppies Pet <i class="fas fa-paw"></i></h2><br>
+            <h1>Bienvenidos a la Clínica Veterinaria Puppies Pet <i class="fas fa-paw"></i></h1><br>
             <div class="row">
                 <div class="col-md-6 col-12">
                     <div class="imagen">
@@ -178,7 +211,7 @@
     <!--Servicios-->
     <section class="section-2">
         <div class="container text-center">
-            <h2>Nuestros Servicios</h2><br>
+            <h1>Nuestros Servicios</h1><br>
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="card">
@@ -225,7 +258,7 @@
     </section>
     <!--Contantanos-->
     <section class="Contactanos m-5 ">
-        <div class="container">
+        <div class="container mt-5 mb-5">
             <div class="row">
                 <div class="col-md offset2-md-2">
                     <div class="_blogcard mt-5">
