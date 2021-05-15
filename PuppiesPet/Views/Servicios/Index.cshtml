@@ -1,0 +1,300 @@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>    
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>Servicios</title>
+    <style>
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        .section-0 {
+            padding: 20vmin 0vmin;
+            color:#64AF8B ;
+        }
+        .section-0 .row .col-md-6 .imagen img {
+            opacity: 0.8;
+            width: 100%;
+            border-radius: 0.2em;
+        }
+
+        .section-0 .row .col-md-6:last-child {
+            position: relative;
+        }
+        .section-0 .row .col-md-6 .panel {
+            position: absolute;
+            top: 4vmin;
+            left: -7vmin;
+            bottom: 4vmin;
+            background:#BAE8D2;
+            border-radius: 3px;
+            text-align: left;
+            padding: 10vmin 5vmin 20vmin 10vmin;
+            box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.2);
+            font-family: var(--Rubik);
+            z-index: 1;
+        }
+        .section-0 .row .col-md-6 .panel p {
+            font-weight: bolder;
+            font-size: 0.9em;
+            color: #2C492F;
+        }
+        /*servicios generales*/
+        .section-1 .container-fluid h1{
+            /*color:#64AF8B;   */
+            color: white;         
+        }
+        #servicios-generales{
+          background-image: url("imagenes/medicos.jpg");
+	        background-color: rgba(6,32,51,.8);
+	        background-attachment: fixed !important;
+	        background-position: center center;
+	        background-repeat: no-repeat;
+	        background-size: cover;
+	        padding: 0;
+        }
+        .facts .devider:before,
+        .facts .devider:after {
+	        color: #737C85;
+          
+        }
+
+        .parallax-overlay {
+	        background-color: rgba(6,32,51,.8);
+	        padding: 50px 0;
+            
+        }
+        .card>img {
+            height: 250px;
+            opacity: 1;
+
+        }
+
+        .card-block {
+            background: #B0CDB0;                     
+        }
+
+        .card-block h6 {
+            color: #2C492F;
+        }
+        .reserva button{
+            background-color: #B7F8D8;
+            font-weight: bold;
+            ;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Sección-Servicios-->
+  <section id="serviciosgenerales" class="section-1">
+      <div class="parallax-overlay">
+          <div class="container-fluid text-center">
+              <h1>Servicios Generales</h1><br>
+          </div>          
+      </div>
+      <div>
+          <ul>
+              
+          </ul>
+      </div>
+     <div class="row" >
+                    <div class="col-md-4 col-sm-6 col-lg-4">
+                        <div class="card">
+                                <img class="card-img-top img-fluid" src="Imagenes/medicinainterna.png">
+                                <div class="card-block">
+                                    <div class="card-title text-center">
+                                    <h6>Medicina Interna</h6>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="Imagenes/oftamología.png">
+                            <div class="card-block">
+                                <div class="card-title text-center">
+                                    <h6>Oftamología</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="Imagenes/odontologia.png">
+                            <div class="card-block">
+                                <div class="card-title text-center">
+                                    <h6>Odontología</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+       </div>
+            <div>
+          <ul>
+              
+          </ul>
+      </div>
+          <div class="row">
+                    <div class="col-md-4 col-sm-6 col-lg-4">
+                        <div class="card">
+                                <img class="card-img-top img-fluid" src="Imagenes/hospitalización.png">
+                                <div class="card-block">
+                                    <div class="card-title text-center">
+                                    <h6>Hospitalización y cuidado</h6>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="Imagenes/cardiología.png">
+                            <div class="card-block">
+                                <div class="card-title text-center">
+                                    <h6>Cardiología</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="Imagenes/cirugia.png">
+                            <div class="card-block">
+                                <div class="card-title text-center">
+                                    <h6>Cirugía General</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+        </div>
+            <div>
+          <ul>
+              
+          </ul>
+      </div>
+  </section>
+  <!-- Sección-Grooming-->
+  <section id="serviciosgenerales" class="section-1">
+      <div class="parallax-overlay">
+          <div class="container-fluid text-center">
+              <h1>Grooming Pet</h1><br>
+          </div>          
+      </div>
+          <div>
+          <ul>
+              
+          </ul>
+      </div>
+     <div class="row">
+                    <div class="col-md-4 col-sm-6 col-lg-4">
+                        <div class="card">
+                                <img class="card-img-top img-fluid" src="Imagenes/bañoypeluqueria.png">
+                                <div class="card-block">
+                                    <div class="card-title text-center">
+                                    <h6>Baño y Peluquería</h6>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="Imagenes/masajes.png">
+                            <div class="card-block">
+                                <div class="card-title text-center">
+                                    <h6>Masajes Terapéuticos</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="Imagenes/pedicura.png">
+                            <div class="card-block">
+                                <div class="card-title text-center">
+                                    <h6>Pedicura Animal</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+        </div>
+            <div>
+          <ul>
+              
+          </ul>
+      </div>
+  </section>
+
+  <!-- Sección-exámenes-->
+  <section id="serviciosgenerales" class="section-1">
+      <div class="parallax-overlay">
+          <div class="container-fluid text-center">
+              <h1>Exámenes Complementarios</h1><br>
+          </div>          
+      </div>
+          <div>
+          <ul>
+              
+          </ul>
+      </div>
+     <div class="row">
+                    <div class="col-md-4 col-sm-6 col-lg-4">
+                        <div class="card">
+                                <img class="card-img-top img-fluid" src="Imagenes/radiologia.png">
+                                <div class="card-block">
+                                    <div class="card-title text-center">
+                                    <h6>Radiología Digital</h6>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="Imagenes/ecografia.png">
+                            <div class="card-block">
+                                <div class="card-title text-center">
+                                    <h6>Ecografía Abdominal</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="Imagenes/laboratorio.png">
+                            <div class="card-block">
+                                <div class="card-title text-center">
+                                    <h6>Laboratorio Clínico</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                
+        </div>
+            <div>
+          <ul>
+              
+          </ul>
+      </div>
+        <div class="reserva pt-4 pb-4 text-center">
+            <button type="button" class="btn" value="Submit">Reservar cita</button>
+        </div>
+            <div>
+          <ul>
+              
+          </ul>
+      </div>
+  </section>
+</body>
+</html>
+
