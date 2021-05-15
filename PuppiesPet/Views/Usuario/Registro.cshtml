@@ -2,7 +2,8 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 @{
-    ViewData["Title"] = "Iniciar Sesión";
+    ViewData["Title"] = " Registrar usuario";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
 
@@ -25,73 +26,79 @@
     <title>@ViewData["Title"] PuppiesPet</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/estilos.css" />
+
 </head>
 
 <body>
-    <style>
-        body {
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-image: url("https://papelmatic.com/wp-content/uploads/2019/09/papelmatic-higiene-profesional-limpieza-desinfeccion-clinicas-veterinarias-1080x675.jpg");
-        }
-    </style>
 
+    <section>
+        <div class="imgBx">
+            <img src="https://www.viveusa.mx/sites/default/files/field/image/perros_aman_a_sus_duenos.png">
 
-    <div class="container">
-        <div class="col-md-6 mx-auto text-center">
-            <div class="header-title">
-                <h1 class="wv-heading--title">
-                    Registrate
-                </h1>
-                <h2 class="wv-heading--subtitle">
-                    Complete los espacios requeridos
-                </h2>
-            </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 mx-auto">
-                <div class="myform form ">
-                    <form action="" method="post" name="login">
 
-                        <div class="form-group">
-                            <input type="email" name="email" class="form-control my-input" id="email"
-                                placeholder="nombres">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" min="0" name="password" id="password" class="form-control my-input"
-                                placeholder="apellidos">
-                        </div>
+        <div class="contentBx">
+            <div class="formBx">
+                <h2>Registrate</h2>
+                <form>
 
-                        <div class="form-group">
-                            <input type="password" min="0" name="password" id="password" class="form-control my-input"
-                                placeholder="Correo Electronico">
-                        </div>
+                    <div class="inputBx">
+                        <span>Nombres</span>
+                        <input type="text" name="">
+                    </div>
 
-                        <div class="form-group">
-                            <input type="password" min="0" name="password" id="password" class="form-control my-input"
-                                placeholder="Contraseña">
-                        </div>
-                        <div class="text-center ">
-                            <button type="submit" class=" btn btn-block send-button tx-tfm">Registrarse</button>
-                        </div>
+                    <div class="inputBx">
+                        <span>Apellidos</span>
+                        <input type="text" name="">
+                    </div>
+                    <div class="inputBx">
+                        <span>Correo Electronico</span>
+                        <input type="text" name="">
+                    </div>
+
+                    <div class="inputBx">
+                        <span>Contraseña</span>
+                        <input type="password" name="">
+                    </div>
+
+                    <div class="inputBx">
+                        <span>Distrito</span>
+                        <select class="form-select" aria-label="Default select example"
+                            style="border: 1px solid #607d8b;border-radius: 30px;">
+                            <option selected>Miraflores</option>
+                            <option value="1">La Molina</option>
+                            <option value="2">Surco</option>
+                            <option value="3">Chorrillos</option>
+                        </select>
+                    </div>
+                    <div class="inputBx">
+                        <span>Direccion</span>
+                        <input type="text" name="">
+                    </div>
 
 
-                        <p class="small mt-3">
-                            <a href="#" class="ps-hero__content__link" colorLetter="blue">Terminos de uso</a> y <a
-                                href="#" colorLetter="blue">Politica de
-                                Privacidad</a>.
-                        </p>
-                    </form>
-                </div>
+
+
+                    <div class="inputBx">
+                        <span>Numero de celular</span>
+                        <input type="Number" name="">
+                    </div>
+
+
+                    <div class="inputBx">
+                        <input type="submit" value="Registrate" name="">
+                    </div>
+                </form>
             </div>
-        </div>
-    </div>
+
+    </section>
 
 
-
-
-
+    <br>
+    <br>
+    <br>
+    <br>
 
 
     <script src="~/lib/jquery.easing/jquery.easing.min.js"></script>
