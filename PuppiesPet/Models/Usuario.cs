@@ -1,63 +1,22 @@
-
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace PuppiesPet.Models
 {
-    [Table("t_usuario")]
-
     public class Usuario
     {
+        public int Id { get; set; }
 
-      [DatabaseGenerated(DatabaseGeneratedOption.Identity
-    )]
-      
-        [Column("id")]
-        public int ID { get; set; }
-
-        [Required(ErrorMessage = "Por favor ingrese los nombres")]
-        [Display(Name="Nombres Completos")]
-        [Column("nombres")]
         public string Nombres { get; set; }
 
-        [Required(ErrorMessage = "Por favor ingrese los nombres")]
-        [Display(Name="Apellidos Completos")]
-        [Column("apellidos")]
-        public string Apellidos{ get; set; }
+        public string Apellidos { get; set; }
 
-        [Required(ErrorMessage = "Por favor ingrese los nombres")]
-        [Display(Name="correo del usuario")]
-        [Column("correo")]
-        public string Correo { get; set; }
+        public int Dni { get; set; }
 
-
-       [Required(ErrorMessage = "Por favor ingrese los nombres")]
-        [Display(Name="Direccion del usuario")]
-        [Column("direccion")]
+        public string Distrito { get; set; }
         public string Direccion { get; set; }
-         
 
-        [Required(ErrorMessage = "Por favor ingrese los nombres")]
-        [Display(Name="distrito del usuario")]
-        [Column("distrito")]
-        public string Distrito { get; set;}
+        public int Celular { get; set; }
 
-        [Required(ErrorMessage = "Por favor ingrese los nombres")]
-        [Display(Name="celular del usuario")]
-        [Column("phone")]     
-        public int Phone { get; set; }
+        public string Contraseña { get; set; }
 
-
-        [Required(ErrorMessage = "Por favor ingrese los nombres")]
-        [Display(Name="contraseña del usuario")]
-        [Column("contraseña")]   
-        public string contraseña { get; set; }
-
-   [NotMapped]
-   public String Respuesta { get; set; }
-
-
+        public string CorreoElectronico { get; set; }
     }
-
 }

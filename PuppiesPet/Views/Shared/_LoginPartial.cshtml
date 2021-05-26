@@ -14,7 +14,7 @@
 
 <body>
 
-    
+
 
     <ul class="navbar-nav">
         @if (SignInManager.IsSignedIn(User))
@@ -30,12 +30,12 @@
         }
         else
         {
-           <li class="nav-item">
-        <a class="nav-link text-white" asp-controller="Usuario" asp-action="Login">Iniciar Sesion</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-white asp-controller="Usuario" asp-action="Registro">Registrarse</a>
-    </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
 
         }
     </ul>
