@@ -1,0 +1,180 @@
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopciones</title>
+    <style>
+          .container{
+          margin-top:12%;
+        }
+        .single-content{
+          position: relative;
+          transition: .3s;
+          box-shadow: 10px 20px 20px rgba(0,0,0,0,0.8);
+        }
+        .single-content .text-content,
+        .single-content:after{
+          position: absolute;
+          left: 20px;
+          right: 20px;
+        }
+        .single-content:after{
+          content:'';
+          display: block;
+          background: rgb(80, 136, 55);
+          top: 20px;
+          bottom: 20px;
+          opacity: 0;
+          transform: rotate3d(-1,1,0,100deg);
+          transition: .4s;
+        }
+        .single-content:hover:after{
+          opacity: .9;
+          transform: rotate3d(0,0,0,0deg);
+        }
+        .single-content img{
+          width: 100%;
+          height: 250px;
+        }
+        .text-content{
+          top:45%;
+          opacity: 0;
+          z-index: 1;
+          transform: translate(10%,-30%);
+          transition:.3s;
+          text-align: center;
+          color:#fff;
+        }
+        .text-content h4{
+            font-family: serif;
+        }
+        .single-content:hover .text-content{
+          opacity: 1;
+          transform: translate(0,-50%);
+          transition-delay: .3s;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Cards adopciones -->
+    <div class="container text-center">
+        <h1><i class="fas fa-paw"></i> Adopciones <i class="fas fa-paw"></i></h1>
+        <p>Se busca hogar cálido y familia responsable ... mucho amor</p>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="row">
+                <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-content">
+                                <img src="Imagenes/perro1.png" alt="">
+                                <div class="text-content">
+                                    <h4>Tati - 6 años</h4>
+                                    <button type="button" class="btn btn-primary" value="Submit">Adoptar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-content">
+                                <img src="Imagenes/perro2.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Oddy - 2 años</h4>
+                                    <button type="button" class="btn btn-primary" value="Submit">Adoptar</button>
+                                </div>
+                           </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-content">
+                                <img src="Imagenes/Perro3.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Chanfle - 1 años</h4>
+                                    <button type="button" class="btn btn-primary" value="Submit">Adoptar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-content">
+                                <img src="Imagenes/gato1.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Tati - 6 años</h4>
+                                    <button type="button" class="btn btn-primary" value="Submit">Adoptar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-content">
+                                <img src="Imagenes/perro4.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Oddy - 2 años</h4>
+                                    <button type="button" class="btn btn-primary" value="Submit">Adoptar</button>
+                                </div>
+                           </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-content">
+                                <img src="Imagenes/Gato2.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Chanfle - 1 años</h4>
+                                    <button type="button" class="btn btn-primary" value="Submit">Adoptar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-content">
+                                <img src="Imagenes/Perro6.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Tati - 6 años</h4>
+                                    <button type="button" class="btn btn-primary" value="Submit">Adoptar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-content">
+                                <img src="Imagenes/perro7.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Oddy - 2 años</h4>
+                                    <button type="button" class="btn btn-primary" value="Submit">Adoptar</button>
+                                </div>
+                           </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-content">
+                                <img src="Imagenes/perro4.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Chanfle - 1 años</h4>
+                                    <button type="button" class="btn btn-primary" value="Submit">Adoptar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>   
+    </div>
+
+</body>
+</html>
