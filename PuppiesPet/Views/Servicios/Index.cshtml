@@ -17,12 +17,12 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Servicios</title>
     <style>
-
         /*servicios generales*/
         .section-1 .container-fluid h1 {
             /*color:#64AF8B;   */
             color: white;
         }
+
         .parallax-overlay {
             background-color: rgba(6, 32, 51, .8);
             padding: 50px 0;
@@ -239,7 +239,8 @@
             </ul>
         </div>
         <div class="reserva pt-4 pb-4 text-center">
-            <button type="button" class="btn" value="Submit">Reservar cita</button>
+            <button type="button" class="btn" value="Submit"><a asp-action="Reservar"
+                    asp-controller="Servicios">Reservar Cita</a></button>
         </div>
         <div>
             <ul>
@@ -250,4 +251,3 @@
 </body>
 
 </html>
-
