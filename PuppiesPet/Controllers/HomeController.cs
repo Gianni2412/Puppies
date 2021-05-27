@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PuppiesPet.Models;
+using PuppiesPet.Data;
 
 namespace PuppiesPet.Controllers
 {
@@ -13,9 +14,12 @@ namespace PuppiesPet.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -29,6 +33,38 @@ namespace PuppiesPet.Controllers
         public IActionResult Adopciones()
         {
             return View();
+        }
+
+
+        public IActionResult Nosotros()
+        {
+            return View();
+        }
+
+        public IActionResult Contactenos()
+        {
+            return View();
+        }
+
+
+
+
+
+
+        [HttpGet]
+        public IActionResult CrearContacto()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CrearContacto(Contactar objContactar)
+        {
+            _context.Add(objContactar);
+            _context.SaveChanges();
+            ViewData["Message"] = "su consulta ya esta registrada";
+            return View();
+
         }
     }
 }
