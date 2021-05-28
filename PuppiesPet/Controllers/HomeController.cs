@@ -35,13 +35,12 @@ namespace PuppiesPet.Controllers
             return View();
         }
 
-
         public IActionResult Nosotros()
         {
             return View();
         }
 
-        public IActionResult Contactenos()
+        public IActionResult Contacto()
         {
             return View();
         }
