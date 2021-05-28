@@ -1,0 +1,123 @@
+@{
+
+  Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    .cover {      
+           
+      border-radius: 25px;
+      background-color:rgb(255,255,137);  
+      background-position: center;  
+      border-color: #2C492F;     
+      border-style: inset; 
+      margin-left: 300px;
+      width: 600px ;
+    }
+
+    .mb-4 {
+            color: white;
+            border-radius: 20px;
+            background: #2C492F;
+            width: 500px;
+            margin-left: 50px;
+          } 
+            
+
+    .btn {
+        
+          color: white;
+          background: #2C492F;
+          width: 205px;
+          border-radius: 10px;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 18px;
+          margin-left: 210px;
+        }    
+    
+
+    H1 {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 36px;
+        color: #64AF8B;
+        margin-left: 200px;
+    }
+
+    H3 {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 18px;  
+         margin-left: 50px;
+         color: #64AF8B;
+
+    }
+.btn:hover{
+transform: scale(1.2);
+background-color: #2C492F;
+}
+.cover:hover{
+transform: scale(1.2);
+}
+
+.contain {
+  object-fit: contain;
+  border-radius: 50px;
+  background-position: center;  
+  
+}
+
+.vet_imagen: {
+margin-left: 150px;
+
+} 
+
+</style>
+
+</head>
+
+<body>
+
+<div class="vet_imagen">
+<img class="contain" src="/Imagenes/mapa.jpg" >  
+</div>
+<br>
+<div class="cover">
+
+<br>
+  <H3>Si tiene una consulta</H4>
+  <H1><strong>Contáctenos</strong></H1>  
+
+    <div class="mb-4">
+      <label for="formGroupExampleInput" class="form-label"> &nbsp;&nbsp;&nbsp;Nombre y apellido del dueño</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre y apellido del dueño">
+    </div>
+
+    <div class="mb-4">
+      <label for="formGroupExampleInput2" class="form-label">&nbsp;&nbsp;&nbsp;Nombre de tu mascota</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nombre de tu mascota">
+    </div>
+
+    <div class="mb-4">
+      <label for="exampleFormControlInput1" class="form-label">&nbsp;&nbsp;&nbsp;Correo electrónico</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo electrónico">
+    </div>
+
+    <div class="mb-4">
+      <label for="exampleFormControlTextarea1" class="form-label">&nbsp;&nbsp;&nbsp;Asunto</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <br><br>
+    </div>
+
+</body>
+
+</html>
