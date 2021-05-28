@@ -17,5 +17,11 @@ namespace PuppiesPet.Models
 
 
         public String Status { get; set; }
+
+
+        public CategoriaProducto categorias { get; set; }
+
+        public int CategoriaId { get; set; }
+
     }
 }

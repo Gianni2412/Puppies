@@ -1,4 +1,7 @@
-﻿@{
+﻿@model Contactar
+
+@{
+
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
@@ -281,6 +284,9 @@
                                     </div>
                                 </div>
                             </div>
+
+
+
                             <div class="col-lg-5 col-md-12 col-sm-12">
                                 <!--Contenido-->
                                 <div class="row">
@@ -288,24 +294,40 @@
                                         <p class="mb-0 font-weight-bold">Si tienes alguna consulta</p>
                                         <div class=" titulo pt-0 font-weight-bold">Contactanos</div>
                                         <div class="form text-left pt-3">
-                                            <label for="exampleFormControlInput1" class="form-label">Nombre y Apellido
-                                                del Dueño:</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput1"
-                                                placeholder="Ej:Luis Vargas">
-                                            <label for="exampleFormControlInput1" class="form-label">Nombre de la
-                                                mascota:</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput1"
-                                                placeholder="Ej:Koki">
-                                            <label for="exampleFormControlInput1" class="form-label">Correo
-                                                Electrónico:</label>
-                                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                                placeholder="luis@example.com">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Asunto:</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                rows="3"></textarea>
-                                            <div class=" enviar pt-3 pb-3 text-center ">
-                                                <button type="button" class="btn" value="Submit">Enviar</button>
-                                            </div>
+
+
+                                           <!--Contactanos-->
+                                            <form asp-controller="Home" asp-action="CrearContacto">
+                                                <label asp-for="Nombres" class="control-label">Nombre y
+                                                    Apellido
+                                                    del Dueño:</label>
+                                                <input asp-for="Nombres" type="text" class="form-control"
+                                                    id="exampleFormControlInput1" placeholder="Ej:Luis Vargas">
+
+
+                                                <label asp-for="NombreMascota" class="control-label">Nombre de la
+                                                    mascota:</label>
+                                                <input asp-for="NombreMascota" type="text" class="form-control"
+                                                    id="exampleFormControlInput1" placeholder="Ej:Koki">
+
+
+
+                                                <label asp-for="CorreoElectronico" class="control-label">Correo
+                                                    Electrónico:</label>
+                                                <input asp-for="CorreoElectronico" type="email" class="form-control"
+                                                    id="exampleFormControlInput1" placeholder="luis@example.com">
+
+
+                                                <label asp-for="Asunto" class="form-label">Asunto:</label>
+                                                <input asp-for="Asunto" type="text" class="form-control"
+                                                    id="exampleFormControlInput1" placeholder="luis@example.com">
+
+
+                                                <div class=" enviar pt-3 pb-3 text-center ">
+                                                    <button type="submit" class="btn" value="Submit">Enviar</button>
+                                                </div>
+
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

@@ -2,7 +2,7 @@ using System;
 
 namespace PuppiesPet.Models
 {
-    public class Mascota
+    public class Mascotas
     {
         public int Id { get; set; }
 
