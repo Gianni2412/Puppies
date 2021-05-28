@@ -28,6 +28,7 @@ namespace PuppiesPet.Controllers
         }
 
 
+//CRUD PARA PRODUCTOS//
         public IActionResult Editar()
         {
             return View();
@@ -42,6 +43,17 @@ namespace PuppiesPet.Controllers
 
 
 
+        public IActionResult Crear()
+        {
+            return View();
+        }
+
+
+//REGISTRANDO CATEGORIAS DE PRODUCTOS
+        public IActionResult CategoriasFarmacia()
+        {
+            return View();
+        }
 
     }
 }
