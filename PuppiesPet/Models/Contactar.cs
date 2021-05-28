@@ -4,9 +4,7 @@ namespace PuppiesPet.Models
     {
         public int Id { get; set; }
 
-        public string Nombre { get; set; }
-
-        public string Apellido { get; set; }
+        public string Nombres { get; set; }
 
         public string NombreMascota { get; set; }
 

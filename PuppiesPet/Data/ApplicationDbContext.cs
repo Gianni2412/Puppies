@@ -13,9 +13,9 @@ namespace PuppiesPet.Data
         {
         }
 
-        public DbSet<PuppiesPet.Models.Mascota> DataMascotas { get; set; }
+        public DbSet<PuppiesPet.Models.Mascotas> DataMascota { get; set; }
         public DbSet<PuppiesPet.Models.Usuario> DataUsuarios { get; set; }
-        public DbSet<PuppiesPet.Models.Especialidad> DataEspecialidad { get; set; }
+  
         public DbSet<PuppiesPet.Models.Servicio> DataServicios{ get; set; }
 
         public DbSet<PuppiesPet.Models.Producto> DataProductos { get; set; }
