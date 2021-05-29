@@ -21,10 +21,10 @@ namespace PuppiesPet.Models
         public Decimal Precio { get; set; }
 
         public int Cantidad { get; set; }
-
-
         public String Status { get; set; }
 
+
         
+
     }
 }
