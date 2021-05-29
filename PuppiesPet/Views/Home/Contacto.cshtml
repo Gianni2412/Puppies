@@ -45,50 +45,40 @@
             margin-top:20px;
         }
         /**/
-        .formulario  {
-            color:#2C492F;
-        }
-        .Contactanos button{
-            background-color: #B7F8D8;
-            font-weight: bold;
-        }
-        .Contactanos input{
-            background-color:#2C492F;
-            opacity: 0.35;
-        }
     </style>
 </head>
 
 <body>
-        <!--contactenos-->
+    <!--contactenos-->
     <section>
-        <div class="container text-center ourservices">
-            <p>Si tienes alguna consulta</p>
-            <h1>Contáctenos</h1>
-            <div class="row rowsetting">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto" >
-                    <div class="imgsetting d-block m-auto"><i class="fas fa-map-marked-alt fa-3x text-white"></i>
+        <div>
+            <div class="container text-center ourservices">
+                <p>Si tienes alguna consulta</p>
+                <h1>Contáctenos</h1>
+                <div class="row rowsetting">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto" >
+                        <div class="imgsetting d-block m-auto"><i class="fas fa-map-marked-alt fa-3x text-white"></i>
+                        </div>
+                        <h3>Dirección</h3>
+                        <p>Av.Miraflores 1565</p>
                     </div>
-                    <h3>Dirección</h3>
-                    <p>Av.Miraflores 1565</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
-                    <div class="imgsetting d-block m-auto"><i class="fas fa-envelope fa-3x text-white"></i>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
+                        <div class="imgsetting d-block m-auto"><i class="fas fa-envelope fa-3x text-white"></i>
 
+                        </div>
+                        <h3>Correo</h3>
+                        <p>puppiespet@hotmail.com</p>
                     </div>
-                    <h3>Correo</h3>
-                    <p>puppiespet@hotmail.com</p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto ">
-                    <div class="imgsetting d-block m-auto"><i class="fas fa-phone fa-3x text-white"></i>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto ">
+                        <div class="imgsetting d-block m-auto"><i class="fas fa-phone fa-3x text-white"></i>
 
+                        </div>
+                        <h3>Celular</h3>
+                        <p>998545541</p>
                     </div>
-                    <h3>Celular</h3>
-                    <p>998545541</p>
                 </div>
             </div>
-        </div>
-            <div class="container formulario mb-5 mt-1">
+            <div class="container">
                 <div class="row">
                     <div class="col-md offset2-md-2">
                         <div class="_blogcard mt-5">
@@ -96,7 +86,7 @@
                                 <div class="col-lg-7 col-md-12 col-sm-12">
                                     <div class="row">
                                         <div class="col-md-12 location">
-                                            <!--Location-->
+                                        <!--Location-->
                                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9904.320155671066!2d-76.97620733498549!3d-12.154748107354944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b8f71b53ab49%3A0xdd8cbd3088d235f0!2sSan%20Juan%20de%20Miraflores!5e0!3m2!1ses!2spe!4v1622097847639!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                                         </div>
                                     </div>
@@ -105,19 +95,27 @@
                                     <!--Contenido-->
                                     <div class="row">
                                         <div class="col-md-12 text-center">
-                                            <div class="form text-left pt-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Nombre y Apellido del Dueño:</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ej:Luis Vargas">
-                                                <label for="exampleFormControlInput1" class="form-label">Nombre de la mascota:</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ej:Koki">
-                                                <label for="exampleFormControlInput1" class="form-label">Correo Electrónico:</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="luis@example.com">
-                                                <label for="exampleFormControlTextarea1" class="form-label">Asunto:</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                                <div class=" enviar pt-3 pb-3 text-center ">
+                                            <form class="form text-left pt-3" method="post">
+                                                <div>
+                                                    <label for="exampleFormControlInput1" class="form-label">Nombre y Apellido del Dueño:</label>
+                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ej:Luis Vargas">
+                                                </div>
+                                                <div>
+                                                    <label for="exampleFormControlInput1" class="form-label">Nombre de la mascota:</label>
+                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ej:Koki">
+                                                </div>
+                                                <div>
+                                                    <label for="exampleFormControlInput1" class="form-label">Correo Electrónico:</label>
+                                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="luis@example.com">
+                                                </div>
+                                                <div>
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Asunto:</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                </div>
+                                                <div class=" enviar pt-3 text-center ">
                                                     <button type="button" class="btn-primary" value="Submit">Enviar</button>
                                                 </div>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -126,6 +124,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <!--js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
