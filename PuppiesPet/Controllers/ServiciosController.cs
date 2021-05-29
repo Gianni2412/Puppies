@@ -34,5 +34,43 @@ namespace PuppiesPet.Controllers
         }
 
 
+        //CRUD PARA AÑADIR SERVICIOS (ADMIN)
+
+        public IActionResult Services()
+        {
+            var servicios = _context.Servicios.OrderBy(s => s.Nombres).ToList();
+            return View(servicios);
+        }
+
+        public IActionResult NuevoServicio()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult NuevoServicio(Servicio s)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(s);
+                _context.SaveChanges();
+                return RedirectToAction("Services");
+            }
+            return View(s);
+        }
+
+
+
+        [HttpPost]
+        public IActionResult BorrarServicios(int id)
+        {
+            var servicio = _context.Servicios.Find(id);
+            _context.Remove(servicio);
+            _context.SaveChanges();
+            return RedirectToAction("Services");
+
+        }
+
+
     }
 }

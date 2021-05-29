@@ -15,11 +15,15 @@ namespace PuppiesPet.Models
 
         public string Nombre { get; set; }
 
+        public string Apellido { get; set; }
+
         public int Celular { get; set; }
 
         public string CorreoElectronico { get; set; }
 
         public string Curriculum { get; set; }
+
+         public string Asunto { get; set; }
 
 
     }

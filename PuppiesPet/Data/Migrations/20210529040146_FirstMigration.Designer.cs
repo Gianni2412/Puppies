@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PuppiesPet.Data;
@@ -9,9 +10,10 @@ using PuppiesPet.Data;
 namespace PuppiesPet.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210529040146_FirstMigration")]
+    partial class FirstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -240,7 +242,7 @@ namespace PuppiesPet.Data.Migrations
 
             modelBuilder.Entity("PuppiesPet.Models.Contactar", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasColumnName("id")
@@ -258,7 +260,7 @@ namespace PuppiesPet.Data.Migrations
                     b.Property<string>("Nombres")
                         .HasColumnType("text");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("t_contactar");
                 });
@@ -404,12 +406,6 @@ namespace PuppiesPet.Data.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<string>("Apellido")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Asunto")
-                        .HasColumnType("text");
-
                     b.Property<int>("Celular")
                         .HasColumnType("integer");
 
@@ -441,6 +437,9 @@ namespace PuppiesPet.Data.Migrations
                     b.Property<int>("Celular")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Contraseña")
+                        .HasColumnType("text");
+
                     b.Property<string>("CorreoElectronico")
                         .HasColumnType("text");
 
@@ -451,9 +450,6 @@ namespace PuppiesPet.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Nombres")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Password")
                         .HasColumnType("text");
 
                     b.HasKey("Id");

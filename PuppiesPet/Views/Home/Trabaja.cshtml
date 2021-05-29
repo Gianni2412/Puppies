@@ -1,3 +1,4 @@
+@model TrabajaNosotros
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
@@ -43,9 +44,19 @@
             font-weight: bolder;
             color: #64AF8B;
         }
-        .panel p{
-            background:#418E48;
-            opacity:0.4;
+
+        .panel p {
+            background: #418E48;
+            opacity: 0.4;
+        }
+
+        .inputBx input[type="submit"] {
+            background: #1d9b67b0;
+            color: #fff;
+            outline: none;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -64,34 +75,47 @@
                     <div class="panel text-center">
                         <h1>Trabaja con Nosotros</h1>
                         <p>¡Escríbenos y únete a nuestra gran familia</p>
-                        <form class="row g-3 text-left">
+                        <form class="row g-3 text-left"  asp-controller="Home" asp-action="CrearTrabajo">           
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Nombre:</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                                <label asp-for="Nombre" class="form-label">Nombre:</label>
+                                <input asp-for="Nombre" type="text" class="form-control" id="inputEmail4">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Apellido:</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                                <label asp-for="Apellido" class="form-label">Apellido:</label>
+                                <input asp-for="Apellido" type="text" class="form-control" id="inputEmail4">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Correo Electrónico:</label>
-                                <input type="email" class="form-control" id="inputPassword4">
+                                <label asp-for="CorreoElectronico" class="form-label">Correo Electrónico:</label>
+                                <input asp-for="CorreoElectronico" type="email" class="form-control"
+                                    id="inputPassword4">
                             </div>
                             <div class="col-6">
-                                <label for="inputAddress" class="form-label">Celular:</label>
-                                <input type="text" class="form-control" id="inputAddress">
+                                <label asp-for="Celular" class="form-label">Celular:</label>
+                                <input asp-for="Celular" type="number" class="form-control" id="inputAddress">
+                            </div>
+
+                            <div class="col-12">
+                                <label asp-for="Curriculum" class="form-label">Adjuntar CV:</label>
+                                <input asp-for="Curriculum" class="form-control" type="file" id="formFile">
                             </div>
                             <div class="col-12">
-                                <label for="formFile" class="form-label">Adjuntar CV:</label>
-                                <input class="form-control" type="file" id="formFile">
+                                <label asp-for="Asunto" for="exampleFormControlTextarea1"
+                                    class="form-label">Asunto</label>
+                                <textarea asp-for="Asunto" class="form-control" id="exampleFormControlTextarea1"
+                                    rows="3"></textarea><br>
                             </div>
-                            <div class="col-12">
-                                <label for="exampleFormControlTextarea1" class="form-label">Asunto</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea><br>
+
+
+                            <div class=" inputBx">
+                                <div class="d-grid gap-2">
+                                    <input type="submit" class="btn btn-primary" value="enviar"></input>
+
+                                </div>
+
                             </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Enviar</button>
-                            </div>
+
+
+
                         </form>
                     </div>
                 </div>
