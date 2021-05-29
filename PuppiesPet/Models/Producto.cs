@@ -1,10 +1,17 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PuppiesPet.Models
 {
-    public class Producto
+ [Table("t_producto")]
+
+
+    public class Productos
 
     {
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id")]
         public int Id { get; set; }
 
         public string Nombre { get; set; }
@@ -15,9 +22,9 @@ namespace PuppiesPet.Models
 
         public int Cantidad { get; set; }
         public String Status { get; set; }
-        public CategoriaProducto categorias { get; set; }
 
-        public int CategoriaId { get; set; }
+
+        
 
     }
 }

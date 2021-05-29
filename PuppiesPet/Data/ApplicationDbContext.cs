@@ -14,24 +14,27 @@ namespace PuppiesPet.Data
         {
         }
 
-        public DbSet<PuppiesPet.Models.Mascotas> DataMascota { get; set; }
-        public DbSet<PuppiesPet.Models.Usuario> DataUsuarios { get; set; }
-  
-        public DbSet<PuppiesPet.Models.Servicio> DataServicios{ get; set; }
+        //public DbSet<PuppiesPet.Models.Mascotas> DataMascota { get; set; }
+        public DbSet<PuppiesPet.Models.Usuario> Usuarios { get; set; }
 
-        public DbSet<PuppiesPet.Models.Producto> DataProductos { get; set; }
+        public DbSet<PuppiesPet.Models.Servicio> Servicios { get; set; }
 
-        public DbSet<PuppiesPet.Models.CategoriaProducto> DataCategoria { get; set; }
+        public DbSet<PuppiesPet.Models.Productos> Productos { get; set; }
 
-        public DbSet<PuppiesPet.Models.Doctor> DataDoctores { get; set; }
+        public DbSet<PuppiesPet.Models.CategoriaProducto> CategoriaProductos { get; set; }
 
-        public DbSet<PuppiesPet.Models.ReservaCita> DataReservas { get; set; }
+        public DbSet<PuppiesPet.Models.Doctor> Doctores { get; set; }
 
-         public DbSet<PuppiesPet.Models.Contactar> DataContactar { get; set; }
+        public DbSet<PuppiesPet.Models.ReservaCita> Reservas { get; set; }
 
-          public DbSet<PuppiesPet.Models.TrabajaNosotros> DataTrabajar { get; set; }
 
-          public DbSet<PuppiesPet.Models.Proforma> Proforma { get; set; }
+        public DbSet<PuppiesPet.Models.Contactar> Contactar { get; set; }
+
+        public DbSet<PuppiesPet.Models.TrabajaNosotros> Trabajar { get; set; }
+
+
+        public DbSet<PuppiesPet.Models.Mascota> Mascotas { get; set; }
+
     }
 }
 

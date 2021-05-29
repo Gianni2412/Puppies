@@ -1,4 +1,4 @@
-﻿@model Contactar
+﻿@model PuppiesPet.Models.Contactar
 
 @{
 
@@ -296,38 +296,39 @@
                                         <div class="form text-left pt-3">
 
 
-                                           <!--Contactanos-->
+                                            <!--Contactanos-->
                                             <form asp-controller="Home" asp-action="CrearContacto">
                                                 <label asp-for="Nombres" class="control-label">Nombre y
                                                     Apellido
                                                     del Dueño:</label>
                                                 <input asp-for="Nombres" type="text" class="form-control"
-                                                    id="exampleFormControlInput1" placeholder="Ej:Luis Vargas">
+                                                    placeholder="Ej:Luis Vargas">
 
 
                                                 <label asp-for="NombreMascota" class="control-label">Nombre de la
                                                     mascota:</label>
                                                 <input asp-for="NombreMascota" type="text" class="form-control"
-                                                    id="exampleFormControlInput1" placeholder="Ej:Koki">
+                                                    placeholder="Ej:Koki">
 
 
 
                                                 <label asp-for="CorreoElectronico" class="control-label">Correo
                                                     Electrónico:</label>
                                                 <input asp-for="CorreoElectronico" type="email" class="form-control"
-                                                    id="exampleFormControlInput1" placeholder="luis@example.com">
+                                                    placeholder="luis@example.com">
 
 
                                                 <label asp-for="Asunto" class="form-label">Asunto:</label>
                                                 <input asp-for="Asunto" type="text" class="form-control"
-                                                    id="exampleFormControlInput1" placeholder="luis@example.com">
+                                                    placeholder="luis@example.com">
 
 
-                                                <div class=" enviar pt-3 pb-3 text-center ">
-                                                    <button type="submit" class="btn" value="Submit">Enviar</button>
+                                                <div class=" form-group enviar pt-3 pb-3 text-center ">
+                                                    <button type="submit" class="btn">Enviar</button>
                                                 </div>
 
                                             </form>
+                                            <h1>@ViewData["Message"]</h1>
                                         </div>
                                     </div>
                                 </div>

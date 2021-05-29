@@ -1,9 +1,17 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace PuppiesPet.Models
 {
+
+
+    [Table("t_doctor")]
+
     public class Doctor
     {
-        public int Id{ get; set;}
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id")]
+        public int Id { get; set; }
 
-        public string Nombres { get; set; }
+        public string Nombre { get; set; }
     }
 }
