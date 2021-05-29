@@ -237,10 +237,12 @@ namespace PuppiesPet.Data.Migrations
                     b.HasIndex("productoIdId");
 
                     b.ToTable("t_categoriaproducto");
+
                 });
 
             modelBuilder.Entity("PuppiesPet.Models.Contactar", b =>
                 {
+
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
@@ -258,9 +260,11 @@ namespace PuppiesPet.Data.Migrations
 
                     b.Property<string>("Nombres")
                         .HasColumnType("text");
+
                     b.HasKey("ID");
 
                     b.ToTable("t_contactar");
+
                 });
 
             modelBuilder.Entity("PuppiesPet.Models.Doctor", b =>
@@ -276,15 +280,19 @@ namespace PuppiesPet.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
                     b.ToTable("t_doctor");
                 });
 
             modelBuilder.Entity("PuppiesPet.Models.Mascota", b =>
+
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
+
                         .HasColumnName("id")
+
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int>("Edad")
@@ -373,7 +381,6 @@ namespace PuppiesPet.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DoctorId");
-
                     b.HasIndex("MascotaId");
 
                     b.HasIndex("ServicioId");
@@ -425,7 +432,6 @@ namespace PuppiesPet.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
                     b.ToTable("t_trabaja");
 
                 });
@@ -516,6 +522,7 @@ namespace PuppiesPet.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
+
             modelBuilder.Entity("PuppiesPet.Models.CategoriaProducto", b =>
                 {
                     b.HasOne("PuppiesPet.Models.Productos", "productoId")
@@ -523,6 +530,8 @@ namespace PuppiesPet.Data.Migrations
                         .HasForeignKey("productoIdId");
 
                     b.Navigation("productoId");
+
+
                 });
 
             modelBuilder.Entity("PuppiesPet.Models.ReservaCita", b =>

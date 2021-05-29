@@ -34,7 +34,10 @@ namespace PuppiesPet.Data
 
 
         public DbSet<PuppiesPet.Models.Mascota> Mascotas { get; set; }
+
+
         public DbSet<PuppiesPet.Models.Proforma> Proforma { get; set; }
+
     }
 }
 
