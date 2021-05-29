@@ -14,11 +14,7 @@ namespace PuppiesPet.Models
         public Decimal Precio { get; set; }
 
         public int Cantidad { get; set; }
-
-
         public String Status { get; set; }
-
-
         public CategoriaProducto categorias { get; set; }
 
         public int CategoriaId { get; set; }

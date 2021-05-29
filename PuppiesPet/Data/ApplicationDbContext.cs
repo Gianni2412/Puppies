@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PuppiesPet.Models;
 
 namespace PuppiesPet.Data
 {
@@ -29,6 +30,8 @@ namespace PuppiesPet.Data
          public DbSet<PuppiesPet.Models.Contactar> DataContactar { get; set; }
 
           public DbSet<PuppiesPet.Models.TrabajaNosotros> DataTrabajar { get; set; }
+
+          public DbSet<PuppiesPet.Models.Proforma> Proforma { get; set; }
     }
 }
 
