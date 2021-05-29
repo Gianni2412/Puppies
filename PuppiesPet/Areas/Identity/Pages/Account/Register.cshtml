@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
     <link rel="stylesheet" href="~/css/estilos.css" />
-  
+
 
 </head>
 
@@ -43,19 +43,6 @@
                 <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
                     <h2>Registrate</h2>
 
-                    <div class="inputBx">
-                        <span>Nombres</span>
-                        <input asp-for="Input.Password" class="form-control" />
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>
-
-                    </div>
-
-                    <div class="inputBx">
-                        <span>Apellidos</span>
-                        <input asp-for="Input.Email" class="form-control" />
-                        <span asp-validation-for="Input.Email" class="text-danger"></span>
-
-                    </div>
 
                     <div class="inputBx">
                         <span>Correo Electronico </span>
@@ -71,28 +58,29 @@
                     </div>
 
                     <div class="inputBx">
-                        <span>Distrito</span>
-                        <select class="form-select" aria-label="Default select example"
-                            style="border: 1px solid #607d8b;border-radius: 30px;">
-                            <option selected>Miraflores</option>
-                            <option value="1">La Molina</option>
-                            <option value="2">Surco</option>
-                            <option value="3">Chorrillos</option>
-                        </select>
+                        <label asp-for="Input.ConfirmPassword"></label>
+                        <input asp-for="Input.ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                     </div>
 
 
-                    <div class="inputBx">
-                        <span>Celular</span>
-                        <input asp-for="Input.Password" class="form-control" />
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>
-                    </div>
+
+
+
+
 
                     <div class="inputBx">
                         <input type="submit" value="Registrate" name="">
                     </div>
 
                 </form>
+
+                <h1>Siguenos</h1>
+                <ul class="sci">
+                    <li> <i class="bi bi-facebook"></i></li>
+                    <li> <i class="bi bi-instagram"></i></li>
+                    <li> <i class="bi bi-linkedin"></i></li>
+
 
             </div>
         </div>

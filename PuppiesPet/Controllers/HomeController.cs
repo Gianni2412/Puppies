@@ -65,5 +65,21 @@ namespace PuppiesPet.Controllers
             return View();
 
         }
+
+           [HttpGet]
+        public IActionResult CrearTrabajo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CrearTrabajo(TrabajaNosotros objTrabajo)
+        {
+            _context.Add(objTrabajo);
+            _context.SaveChanges();
+            ViewData["Message"] = "Su Cv ha sido guardado";
+            return View();
+
+        }
     }
 }
