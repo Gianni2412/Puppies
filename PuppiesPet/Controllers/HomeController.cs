@@ -66,6 +66,10 @@ namespace PuppiesPet.Controllers
 
         }
 
+
+
+        
+
            [HttpGet]
         public IActionResult CrearTrabajo()
         {
@@ -81,5 +85,8 @@ namespace PuppiesPet.Controllers
             return View();
 
         }
+
+
+        
     }
 }
