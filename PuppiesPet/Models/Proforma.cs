@@ -13,7 +13,7 @@ namespace PuppiesPet.Models
         public int ID{get; set;}
         public String UserID {get; set;}
 
-        public Producto Producto {get; set;}
+        public Producto Productos {get; set;}
 
         public int Quantity{get; set;}
         public Decimal Price { get; set; }

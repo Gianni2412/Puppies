@@ -15,7 +15,7 @@ namespace PuppiesPet.Models
 
         public string Nombre { get; set; }
 
-        public Productos productoId { get; set; }
+        public Producto productoId { get; set; }
 
 
     }
