@@ -1,13 +1,22 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PuppiesPet.Models
 {
-    public class CategoriaProducto 
+
+    [Table("t_categoriaproducto")]
+    public class CategoriaProducto
     {
-        public int id { get; set; }
 
-        public int Nombre { get; set; }
 
-       public ICollection<Producto> Productos { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id")]
+        public int Id { get; set; }
+
+        public string Nombre { get; set; }
+
+        public Productos productoId { get; set; }
+
+
     }
 }

@@ -1,8 +1,15 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace PuppiesPet.Models
 {
+
+    [Table("t_contactar")]
     public class Contactar
     {
-        public int Id { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id")]
+        public int ID{ get; set; }
 
         public string Nombres { get; set; }
 

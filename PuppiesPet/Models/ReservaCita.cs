@@ -1,21 +1,27 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PuppiesPet.Models
 {
+
+    [Table("t_reservar")]
     public class ReservaCita
     {
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id")]
+
         public int Id { get; set; }
 
         public DateTime Fecha { get; set; }
 
         public DateTime Hora { get; set; }
 
+        public int UsuarioId { get; set; }
 
-        //CLASES EXTERNAS
 
-        public Usuario Usuario { get; set; }
 
-        public Mascotas Mascota { get; set; }
+        public Mascota Mascota { get; set; }
 
         public Servicio Servicio { get; set; }
 
@@ -23,19 +29,13 @@ namespace PuppiesPet.Models
 
 
 
-        // EF S.P
-        public int UsuarioId { get; set; }
-
-        public int MascotasId { get; set; }
-
-        public int ServicioId { get; set; }
-
-        public int DoctorId { get; set; }
 
 
 
 
 
-        //traer idusuario,idmascota,idServicio,idDoctor
+
+
+
     }
 }
