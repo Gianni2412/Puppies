@@ -1,5 +1,3 @@
-@model ReservaCita
-
 @{
     ViewData["Title"] = "Servicios Page";
 }
@@ -22,8 +20,106 @@
     <title>Servicios</title>
 </head>
 
-<body
-    style="background: url(https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);">
+<body style="background-image: url(https://www.veteralia.com/wp-content/uploads/2017/03/Intro.jpg)">
+
+
+    <div class="wrapper">
+        <div class="title"> Reservar Cita </div>
+
+
+
+        <div class="form">
+
+
+            <div class="inputfield">
+                <label>Servicios</label>
+                <div class="custom_select">
+                    <select>
+                        <option value="">Servicios Generales</option>
+                        <option value="male">Groomming Pet</option>
+                        <option value="female">Examenes Complementarios</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label>Servicio Especifico</label>
+                <div class="custom_select">
+                    <select>
+                        <option value="">Medicina Interna</option>
+                        <option value="male">Oftalmología</option>
+                        <option value="female">Odontologia</option>
+                        <option value="female">Hospitalizacion</option>
+                        <option value="female">Cardiologia</option>
+                        <option value="female">Baño y Peluqueria</option>
+                        <option value="female">Masajes Terapeuticos</option>
+                        <option value="female">Pedicura</option>
+                        <option value="female">Radiologia Digital</option>
+                        <option value="female">Ecografia Abdominal</option>
+                        <option value="female">Laboratorio clinico</option>
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="inputfield">
+                <label>Medicos Veterinarios</label>
+                <div class="custom_select">
+                    <select>
+                        <option value="">Giannina Caycho</option>
+                        <option value="male">Jose Arguedas</option>
+                        <option value="female">Aji de POLLO</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label>Hora</label>
+                <input type="time" value="11:45:00" max="22:30:00" min="10:00:00" step="1" class="input">
+            </div>
+
+            <div class="inputfield">
+                <label>Fecha</label>
+                <input type="date" id="start" name="trip-start" value="2018-07-22" class="input">
+            </div>
+
+            <div class="inputfield">
+                <label>Numero de celular</label>
+                <input type="Number" class="input">
+            </div>
+
+            <div class="inputfield">
+                <label>Nombre de la Mascota</label>
+                <input type="text" class="input">
+            </div>
+
+            <div class="inputfield">
+                <label>Fecha de Nacimiento</label>
+                <input type="date" id="start" name="trip-start" value="2018-07-22" class="input">
+            </div>
+
+
+            <div class="inputfield">
+                <label>Raza</label>
+                <input type="text" class="input">
+            </div>
+
+            <div class="inputfield terms">
+                <label class="check">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <p>Acepto los terminos y condiciones</p>
+            </div>
+            <div class="inputfield">
+                <input type="submit" value="Registrar Cita" class="btn">
+            </div>
+        </div>
+    </div>
+
+
+
 
 
 
