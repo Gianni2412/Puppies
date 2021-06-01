@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace PuppiesPet.Migrations
 {
-    public partial class terceramigracion : Migration
+    public partial class PrimeraMigracion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -319,10 +319,11 @@ namespace PuppiesPet.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Fecha = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Hora = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    UsuarioId = table.Column<int>(type: "integer", nullable: false),
-                    MascotaId = table.Column<int>(type: "integer", nullable: true),
-                    DoctorId = table.Column<int>(type: "integer", nullable: true),
-                    servicioId = table.Column<int>(type: "integer", nullable: false)
+                    celular = table.Column<int>(type: "integer", nullable: false),
+                    DoctorId = table.Column<int>(type: "integer", nullable: false),
+                    ServicioId = table.Column<int>(type: "integer", nullable: false),
+                    NombreMascota = table.Column<string>(type: "text", nullable: true),
+                    RazaMascota = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -332,16 +333,10 @@ namespace PuppiesPet.Migrations
                         column: x => x.DoctorId,
                         principalTable: "t_doctor",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_t_reservar_t_mascota_MascotaId",
-                        column: x => x.MascotaId,
-                        principalTable: "t_mascota",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_t_reservar_t_servicio_servicioId",
-                        column: x => x.servicioId,
+                        name: "FK_t_reservar_t_servicio_ServicioId",
+                        column: x => x.ServicioId,
                         principalTable: "t_servicio",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -400,14 +395,9 @@ namespace PuppiesPet.Migrations
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_t_reservar_MascotaId",
+                name: "IX_t_reservar_ServicioId",
                 table: "t_reservar",
-                column: "MascotaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_t_reservar_servicioId",
-                table: "t_reservar",
-                column: "servicioId");
+                column: "ServicioId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -434,6 +424,9 @@ namespace PuppiesPet.Migrations
                 name: "t_contactar");
 
             migrationBuilder.DropTable(
+                name: "t_mascota");
+
+            migrationBuilder.DropTable(
                 name: "t_proforma");
 
             migrationBuilder.DropTable(
@@ -456,9 +449,6 @@ namespace PuppiesPet.Migrations
 
             migrationBuilder.DropTable(
                 name: "t_doctor");
-
-            migrationBuilder.DropTable(
-                name: "t_mascota");
 
             migrationBuilder.DropTable(
                 name: "t_servicio");

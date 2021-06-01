@@ -10,8 +10,8 @@ using PuppiesPet.Data;
 namespace PuppiesPet.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210531221430_terceramigracion")]
-    partial class terceramigracion
+    [Migration("20210601183355_PrimeraMigracion")]
+    partial class PrimeraMigracion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -381,7 +381,7 @@ namespace PuppiesPet.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("DoctorId")
+                    b.Property<int>("DoctorId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("Fecha")
@@ -390,22 +390,23 @@ namespace PuppiesPet.Migrations
                     b.Property<DateTime>("Hora")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("MascotaId")
+                    b.Property<string>("NombreMascota")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RazaMascota")
+                        .HasColumnType("text");
+
+                    b.Property<int>("ServicioId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("servicioId")
+                    b.Property<int>("celular")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DoctorId");
 
-                    b.HasIndex("MascotaId");
-
-                    b.HasIndex("servicioId");
+                    b.HasIndex("ServicioId");
 
                     b.ToTable("t_reservar");
                 });
@@ -562,24 +563,25 @@ namespace PuppiesPet.Migrations
             modelBuilder.Entity("PuppiesPet.Models.ReservaCita", b =>
                 {
                     b.HasOne("PuppiesPet.Models.Doctor", "Doctor")
-                        .WithMany()
-                        .HasForeignKey("DoctorId");
-
-                    b.HasOne("PuppiesPet.Models.Mascota", "Mascota")
-                        .WithMany()
-                        .HasForeignKey("MascotaId");
+                        .WithMany("reservacita")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("PuppiesPet.Models.Servicio", "servicio")
                         .WithMany("reservacitaId")
-                        .HasForeignKey("servicioId")
+                        .HasForeignKey("ServicioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Doctor");
 
-                    b.Navigation("Mascota");
-
                     b.Navigation("servicio");
+                });
+
+            modelBuilder.Entity("PuppiesPet.Models.Doctor", b =>
+                {
+                    b.Navigation("reservacita");
                 });
 
             modelBuilder.Entity("PuppiesPet.Models.Servicio", b =>

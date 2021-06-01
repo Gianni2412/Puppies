@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PuppiesPet.Models
 {
 
- [Table("t_mascota")]
+    [Table("t_mascota")]
     public class Mascota
     {
-         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
         public int Id { get; set; }
 
@@ -21,6 +21,8 @@ namespace PuppiesPet.Models
 
         public int Edad { get; set; }
 
+        public string ImagenMascota { get; set; }
+
 
         public Decimal Peso { get; set; }
 
@@ -28,7 +30,7 @@ namespace PuppiesPet.Models
 
         public int UsuarioId { get; set; }
 
-        
+
 
 
     }

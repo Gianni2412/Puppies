@@ -18,21 +18,21 @@ namespace PuppiesPet.Models
 
         public DateTime Hora { get; set; }
 
-        public int UsuarioId { get; set; }
-
-
-
-        public Mascota Mascota { get; set; }
-
+        public int celular { get; set; }
 
 
         public Doctor Doctor { get; set; }
 
+        public int DoctorId { get; set; }
+
+        public Servicio servicio { get; set; }
+
+        public int ServicioId { get; set; }
 
 
-        public  Servicio servicio { get; set; }
+        public string NombreMascota { get; set; }
 
-       public int servicioId { get; set; }
+        public string RazaMascota { get; set; }
 
 
 

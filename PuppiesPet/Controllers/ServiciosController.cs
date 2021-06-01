@@ -96,13 +96,35 @@ namespace PuppiesPet.Controllers
 
 
 
-        //PARA GUARDAR UNA CITA EN CONJUNTO CON LA SELECCION DE UN SERVICIO
+        //PARA GUARDAR UNA CITA EN CONJUNTO CON LA SELECCION DE UN SERVICIO y DOCTOR
         public ActionResult Reservar()
         {
             ViewBag.Services = _context.Servicios.ToList().Select(se => new SelectListItem(se.Nombres, se.Id.ToString()));
+            ViewBag.Medicos = _context.Doctores.ToList().Select(me => new SelectListItem(me.Nombre, me.Id.ToString()));
+
             return View();
+
+
         }
 
+        [HttpPost]
+        public IActionResult Reservar(ReservaCita r)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(r);
+                _context.SaveChanges();
+                return RedirectToAction("NuevaReservaConfirmacion");
+            }
+            return View();
+
+        }
+
+        public IActionResult NuevaReservaConfirmacion()
+        {
+            return View();
+        }
 
 
 
@@ -110,7 +132,7 @@ namespace PuppiesPet.Controllers
 
         public ActionResult Medico()
         {
-            ViewBag.Medicos = _context.Doctores.ToList().Select(d => new SelectListItem(d.Nombre, d.Id.ToString()));
+
             return View();
         }
 
