@@ -29,7 +29,7 @@ namespace PuppiesPet.Controllers
         }
 
 
-       
+
 
 
         //CRUD PARA AÑADIR SERVICIOS (ADMIN)
@@ -52,7 +52,7 @@ namespace PuppiesPet.Controllers
             {
                 _context.Add(s);
                 _context.SaveChanges();
-                return RedirectToAction("Services");
+                return RedirectToAction("Servicios");
             }
             return View(s);
         }
@@ -132,7 +132,7 @@ namespace PuppiesPet.Controllers
             {
                 _context.Add(d);
                 _context.SaveChanges();
-                return RedirectToAction("Doctor");
+                return RedirectToAction("Medicos");
             }
             return View(d);
         }
@@ -145,7 +145,7 @@ namespace PuppiesPet.Controllers
             var doctor = _context.Doctores.Find(id);
             _context.Remove(doctor);
             _context.SaveChanges();
-            return RedirectToAction("Doctor");
+            return RedirectToAction("Medicos");
 
         }
 
