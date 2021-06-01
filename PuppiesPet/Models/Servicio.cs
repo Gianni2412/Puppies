@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PuppiesPet.Models
@@ -12,6 +13,6 @@ namespace PuppiesPet.Models
 
 
 
-
+        public ICollection<ReservaCita> reservacitaId { get; set; }
     }
 }

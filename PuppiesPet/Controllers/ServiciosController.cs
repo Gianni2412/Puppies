@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PuppiesPet.Models;
 using PuppiesPet.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace PuppiesPet.Controllers
 {
@@ -28,15 +29,12 @@ namespace PuppiesPet.Controllers
         }
 
 
-        public IActionResult Reservar()
-        {
-            return View();
-        }
+       
 
 
         //CRUD PARA AÑADIR SERVICIOS (ADMIN)
 
-        public IActionResult Services()
+        public IActionResult Servicios()
         {
             var servicios = _context.Servicios.OrderBy(s => s.Nombres).ToList();
             return View(servicios);
@@ -67,9 +65,116 @@ namespace PuppiesPet.Controllers
             var servicio = _context.Servicios.Find(id);
             _context.Remove(servicio);
             _context.SaveChanges();
-            return RedirectToAction("Services");
+            return RedirectToAction("Servicios");
 
         }
+
+
+        public IActionResult EditarServicios(int id)
+        {
+            var servicios = _context.Servicios.Find(id);
+            return View(servicios);
+        }
+
+        [HttpPost]
+        public ActionResult EditarServicios(Servicio se)
+        {
+            if (ModelState.IsValid)
+            {
+                var servicios = _context.Servicios.Find(se.Id);
+                servicios.Nombres = se.Nombres;
+                _context.SaveChanges();
+                return RedirectToAction("editarServiciosconfirmado");
+            }
+            return View(se);
+        }
+
+        public ActionResult editarServiciosconfirmado()
+        {
+            return View();
+        }
+
+
+
+        //PARA GUARDAR UNA CITA EN CONJUNTO CON LA SELECCION DE UN SERVICIO
+        public ActionResult Reservar()
+        {
+            ViewBag.Services = _context.Servicios.ToList().Select(se => new SelectListItem(se.Nombres, se.Id.ToString()));
+            return View();
+        }
+
+
+
+
+        //PARA LISTAR, AGREGAR ,ELIMINAR DOCTORES
+
+        public ActionResult Medico()
+        {
+            ViewBag.Medicos = _context.Doctores.ToList().Select(d => new SelectListItem(d.Nombre, d.Id.ToString()));
+            return View();
+        }
+
+        public IActionResult Medicos()
+        {
+            var medicos = _context.Doctores.OrderBy(d => d.Nombre).ToList();
+            return View(medicos);
+        }
+
+        public IActionResult NuevoMedico()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult NuevoMedico(Doctor d)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(d);
+                _context.SaveChanges();
+                return RedirectToAction("Doctor");
+            }
+            return View(d);
+        }
+
+
+
+        [HttpPost]
+        public IActionResult BorrarDoctor(int id)
+        {
+            var doctor = _context.Doctores.Find(id);
+            _context.Remove(doctor);
+            _context.SaveChanges();
+            return RedirectToAction("Doctor");
+
+        }
+
+
+        public IActionResult EditarDoctor(int id)
+        {
+            var doctor = _context.Doctores.Find(id);
+            return View(doctor);
+        }
+
+        [HttpPost]
+        public ActionResult EditarDoctor(Doctor d)
+        {
+            if (ModelState.IsValid)
+            {
+                var doctor = _context.Doctores.Find(d.Id);
+                doctor.Nombre = d.Nombre;
+                _context.SaveChanges();
+                return RedirectToAction("editadoctorConfirmado");
+            }
+            return View(d);
+        }
+
+        public ActionResult editardoctorconfirmado()
+        {
+            return View();
+        }
+
+
 
 
     }

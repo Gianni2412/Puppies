@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PuppiesPet.Data;
 
-namespace PuppiesPet.Data.Migrations
+namespace PuppiesPet.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210529094018_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20210531221430_terceramigracion")]
+    partial class terceramigracion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -346,6 +346,33 @@ namespace PuppiesPet.Data.Migrations
                     b.ToTable("t_producto");
                 });
 
+            modelBuilder.Entity("PuppiesPet.Models.Proforma", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.Property<int?>("ProductoId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("text");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("t_proforma");
+                });
+
             modelBuilder.Entity("PuppiesPet.Models.ReservaCita", b =>
                 {
                     b.Property<int>("Id")
@@ -366,10 +393,10 @@ namespace PuppiesPet.Data.Migrations
                     b.Property<int?>("MascotaId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("ServicioId")
+                    b.Property<int>("UsuarioId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("UsuarioId")
+                    b.Property<int>("servicioId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -378,7 +405,7 @@ namespace PuppiesPet.Data.Migrations
 
                     b.HasIndex("MascotaId");
 
-                    b.HasIndex("ServicioId");
+                    b.HasIndex("servicioId");
 
                     b.ToTable("t_reservar");
                 });
@@ -523,6 +550,15 @@ namespace PuppiesPet.Data.Migrations
                     b.Navigation("productoId");
                 });
 
+            modelBuilder.Entity("PuppiesPet.Models.Proforma", b =>
+                {
+                    b.HasOne("PuppiesPet.Models.Productos", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId");
+
+                    b.Navigation("Producto");
+                });
+
             modelBuilder.Entity("PuppiesPet.Models.ReservaCita", b =>
                 {
                     b.HasOne("PuppiesPet.Models.Doctor", "Doctor")
@@ -533,15 +569,22 @@ namespace PuppiesPet.Data.Migrations
                         .WithMany()
                         .HasForeignKey("MascotaId");
 
-                    b.HasOne("PuppiesPet.Models.Servicio", "Servicio")
-                        .WithMany()
-                        .HasForeignKey("ServicioId");
+                    b.HasOne("PuppiesPet.Models.Servicio", "servicio")
+                        .WithMany("reservacitaId")
+                        .HasForeignKey("servicioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Doctor");
 
                     b.Navigation("Mascota");
 
-                    b.Navigation("Servicio");
+                    b.Navigation("servicio");
+                });
+
+            modelBuilder.Entity("PuppiesPet.Models.Servicio", b =>
+                {
+                    b.Navigation("reservacitaId");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,112 @@
+@model List<Doctor>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor</title>
+</head>
+
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 400px;
+        border-radius 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15)
+    }
+
+    .content-table thead tr {
+        background-color: #009879;
+        color: white;
+        text-align: left;
+        font-weight: bold;
+
+    }
+
+    .content-table thead th,
+    .content-table td {
+        padding: 12px 15px;
+
+    }
+
+    .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+
+    }
+
+    .content-table tbody tr .active-row {
+        font-weight: bold;
+        color: #009879;
+    }
+</style>
+
+<body>
+
+    <a href="/Servicios/NuevoMedico" class="btn btn-success">Añadir Medico</a>
+
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+           
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var d in Model)
+            {
+
+                <tr class="active-row">
+                    <td>@d.Id</td>
+                    <td>@d.Nombre</td>
+
+                    <td>
+                        <a href="/Servicios/EditarDoctor/@d.Id" class=" btn btn-dark">Editar</a>
+                        <form action="/Servicios/BorrarDoctor" method="post" class="d-inline-block">
+                            <input type="hidden" name="id" value="@d.Id" />
+
+                            <button class="btn btn-danger">Borrar</button>
+                        </form>
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+            }
+
+
+        </tbody>
+
+        @if (Model.Count == 0)
+        {
+            <tr>
+                <td colspan="2" class="text-center">No se ha encontrado Doctores</td>
+            </tr>
+        }
+
+
+
+    </table>
+</body>
+
+</html>

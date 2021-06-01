@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PuppiesPet.Models
@@ -23,10 +24,15 @@ namespace PuppiesPet.Models
 
         public Mascota Mascota { get; set; }
 
-        public Servicio Servicio { get; set; }
+
 
         public Doctor Doctor { get; set; }
 
+
+
+        public  Servicio servicio { get; set; }
+
+       public int servicioId { get; set; }
 
 
 

@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace PuppiesPet.Data.Migrations
+namespace PuppiesPet.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class terceramigracion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -133,9 +133,11 @@ namespace PuppiesPet.Data.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Nombre = table.Column<string>(type: "text", nullable: true),
+                    Apellido = table.Column<string>(type: "text", nullable: true),
                     Celular = table.Column<int>(type: "integer", nullable: false),
                     CorreoElectronico = table.Column<string>(type: "text", nullable: true),
-                    Curriculum = table.Column<string>(type: "text", nullable: true)
+                    Curriculum = table.Column<string>(type: "text", nullable: true),
+                    Asunto = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -153,7 +155,7 @@ namespace PuppiesPet.Data.Migrations
                     Distrito = table.Column<string>(type: "text", nullable: true),
                     Direccion = table.Column<string>(type: "text", nullable: true),
                     Celular = table.Column<int>(type: "integer", nullable: false),
-                    Contraseña = table.Column<string>(type: "text", nullable: true),
+                    Password = table.Column<string>(type: "text", nullable: true),
                     CorreoElectronico = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -288,6 +290,28 @@ namespace PuppiesPet.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "t_proforma",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserID = table.Column<string>(type: "text", nullable: true),
+                    ProductoId = table.Column<int>(type: "integer", nullable: true),
+                    Quantity = table.Column<int>(type: "integer", nullable: false),
+                    Price = table.Column<decimal>(type: "numeric", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_proforma", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_t_proforma_t_producto_ProductoId",
+                        column: x => x.ProductoId,
+                        principalTable: "t_producto",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "t_reservar",
                 columns: table => new
                 {
@@ -297,8 +321,8 @@ namespace PuppiesPet.Data.Migrations
                     Hora = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     UsuarioId = table.Column<int>(type: "integer", nullable: false),
                     MascotaId = table.Column<int>(type: "integer", nullable: true),
-                    ServicioId = table.Column<int>(type: "integer", nullable: true),
-                    DoctorId = table.Column<int>(type: "integer", nullable: true)
+                    DoctorId = table.Column<int>(type: "integer", nullable: true),
+                    servicioId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -316,11 +340,11 @@ namespace PuppiesPet.Data.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_t_reservar_t_servicio_ServicioId",
-                        column: x => x.ServicioId,
+                        name: "FK_t_reservar_t_servicio_servicioId",
+                        column: x => x.servicioId,
                         principalTable: "t_servicio",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -366,6 +390,11 @@ namespace PuppiesPet.Data.Migrations
                 column: "productoIdId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_t_proforma_ProductoId",
+                table: "t_proforma",
+                column: "ProductoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_t_reservar_DoctorId",
                 table: "t_reservar",
                 column: "DoctorId");
@@ -376,9 +405,9 @@ namespace PuppiesPet.Data.Migrations
                 column: "MascotaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_t_reservar_ServicioId",
+                name: "IX_t_reservar_servicioId",
                 table: "t_reservar",
-                column: "ServicioId");
+                column: "servicioId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -403,6 +432,9 @@ namespace PuppiesPet.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "t_contactar");
+
+            migrationBuilder.DropTable(
+                name: "t_proforma");
 
             migrationBuilder.DropTable(
                 name: "t_reservar");
