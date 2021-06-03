@@ -18,6 +18,10 @@ namespace PuppiesPet.Controllers
         {
         return View();
         }  
+        public IActionResult ListarRegistroRegistarProducto()
+        {
+        return View();
+        }  
 
     }
 
