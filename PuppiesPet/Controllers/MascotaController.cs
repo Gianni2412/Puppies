@@ -24,13 +24,13 @@ namespace PuppiesPet.Controllers
         }
 
 
-//PARA MODIFICAR LA INFORMACION DE MI MASCOTA
-       
+        //PARA MODIFICAR LA INFORMACION DE MI MASCOTA
 
-          public IActionResult ModificarMascota(int id)
+
+        public IActionResult ModificarMascota(int id)
         {
-            var mascotas = _context.Mascotas.Find(id);
-            return View(mascotas);
+            var mascota = _context.Mascotas.Find(id);
+            return View(mascota);
         }
 
         [HttpPost]
@@ -38,18 +38,26 @@ namespace PuppiesPet.Controllers
         {
             if (ModelState.IsValid)
             {
-                var mascotas = _context.Mascotas.Find(ma.Id);
-                mascotas.Nombre = ma.Nombre;
+                var mascota = _context.Mascotas.Find(ma.Id);
+                mascota.Nombre = ma.Nombre;
+                mascota.Edad = ma.Edad;
+                mascota.Peso = ma.Peso;
+                mascota.Enfermedades = ma.Enfermedades;
                 _context.SaveChanges();
-                return RedirectToAction("Lista");
+                return RedirectToAction("ModificarMascotaConfirmado");
             }
             return View(ma);
         }
 
-       
+        public ActionResult ModificarMascotaConfirmado()
+        {
+            return View();
+        }
 
 
-// PARA CREAR UNA NUEVA MASCOTA :D
+
+
+        // PARA CREAR UNA NUEVA MASCOTA :D
         public IActionResult Nuevo()
         {
             return View();
