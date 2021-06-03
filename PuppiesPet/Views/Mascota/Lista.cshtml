@@ -1,0 +1,137 @@
+@model List<Mascota>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Mascotas</title>
+</head>
+
+<body>
+    <style>
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            border-radius 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15)
+        }
+
+        .content-table thead tr {
+            background-color: #009879;
+            color: white;
+            text-align: left;
+            font-weight: bold;
+
+        }
+
+        .content-table thead th,
+        .content-table td {
+            padding: 12px 15px;
+
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+
+        }
+
+        .content-table tbody tr .active-row {
+            font-weight: bold;
+            color: #009879;
+        }
+    </style>
+
+    <h1>Lista de Mis Mascotas Registradas</h1>
+    @if (Model.Count == 0)
+    {
+        <div class="alert alert-warming text-center">Aun no hay Mascotas Registradas</div>
+    }
+    else
+    {
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Sexo</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Enfermedades</th>
+
+                    <th>Operaciones</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+                @foreach (var ma in Model)
+                {
+                    <tr class="active-row">
+                        <td>
+                            <div><img src="@ma.ImagenMascota" style="widht:100px;height:100px;" /></div>
+                        </td>
+                        <td>@ma.Nombre</td>
+                        <td></td>
+                        <td>@ma.Sexo</td>
+                        <td>@ma.Raza</td>
+                        <td>@ma.Edad</td>
+                        <td>@ma.Enfermedades</td>
+                        <td>
+                            <a href="/Mascota/ModificarMascota/@ma.Id" class=" btn btn-dark">Modificar</a>
+                            <form action="/Mascota/BorrarMascota" method="post" class="d-inline-block">
+                                <input type="hidden" name="id" value="@ma.Id" />
+
+                                <button class="btn btn-danger">Borrar</button>
+
+                            </form>
+
+
+                        </td>
+
+
+
+                    </tr>
+                }
+            </tbody>
+
+
+        </table>
+    }
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+
+</html>
