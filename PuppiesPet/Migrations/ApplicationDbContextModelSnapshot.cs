@@ -2,18 +2,16 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PuppiesPet.Data;
 
-namespace PuppiesPet.Data.Migrations
+namespace PuppiesPet.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210529040146_FirstMigration")]
-    partial class FirstMigration
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -242,7 +240,7 @@ namespace PuppiesPet.Data.Migrations
 
             modelBuilder.Entity("PuppiesPet.Models.Contactar", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasColumnName("id")
@@ -260,7 +258,7 @@ namespace PuppiesPet.Data.Migrations
                     b.Property<string>("Nombres")
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("t_contactar");
                 });
@@ -298,6 +296,9 @@ namespace PuppiesPet.Data.Migrations
                     b.Property<string>("Especie")
                         .HasColumnType("text");
 
+                    b.Property<string>("ImagenMascota")
+                        .HasColumnType("text");
+
                     b.Property<string>("Nombre")
                         .HasColumnType("text");
 
@@ -309,7 +310,6 @@ namespace PuppiesPet.Data.Migrations
 
                     b.Property<string>("Sexo")
                         .HasColumnType("text");
-
                     b.Property<int>("UsuarioId")
                         .HasColumnType("integer");
 
@@ -346,6 +346,33 @@ namespace PuppiesPet.Data.Migrations
                     b.ToTable("t_producto");
                 });
 
+            modelBuilder.Entity("PuppiesPet.Models.Proforma", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.Property<int?>("ProductoId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("text");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("t_proforma");
+                });
+
             modelBuilder.Entity("PuppiesPet.Models.ReservaCita", b =>
                 {
                     b.Property<int>("Id")
@@ -354,7 +381,7 @@ namespace PuppiesPet.Data.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("DoctorId")
+                    b.Property<int>("DoctorId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("Fecha")
@@ -363,24 +390,26 @@ namespace PuppiesPet.Data.Migrations
                     b.Property<DateTime>("Hora")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("MascotaId")
+                    b.Property<string>("NombreMascota")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RazaMascota")
+                        .HasColumnType("text");
+
+                    b.Property<int>("ServicioId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("ServicioId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("UsuarioId")
+                    b.Property<int>("celular")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DoctorId");
 
-                    b.HasIndex("MascotaId");
-
                     b.HasIndex("ServicioId");
 
                     b.ToTable("t_reservar");
+
                 });
 
             modelBuilder.Entity("PuppiesPet.Models.Servicio", b =>
@@ -406,6 +435,12 @@ namespace PuppiesPet.Data.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<string>("Apellido")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Asunto")
+                        .HasColumnType("text");
+
                     b.Property<int>("Celular")
                         .HasColumnType("integer");
 
@@ -419,7 +454,6 @@ namespace PuppiesPet.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
                     b.ToTable("t_trabaja");
                 });
 
@@ -437,9 +471,6 @@ namespace PuppiesPet.Data.Migrations
                     b.Property<int>("Celular")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Contraseña")
-                        .HasColumnType("text");
-
                     b.Property<string>("CorreoElectronico")
                         .HasColumnType("text");
 
@@ -450,6 +481,9 @@ namespace PuppiesPet.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Nombres")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -517,25 +551,42 @@ namespace PuppiesPet.Data.Migrations
                     b.Navigation("productoId");
                 });
 
+            modelBuilder.Entity("PuppiesPet.Models.Proforma", b =>
+                {
+                    b.HasOne("PuppiesPet.Models.Productos", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId");
+
+                    b.Navigation("Producto");
+                });
             modelBuilder.Entity("PuppiesPet.Models.ReservaCita", b =>
                 {
                     b.HasOne("PuppiesPet.Models.Doctor", "Doctor")
-                        .WithMany()
-                        .HasForeignKey("DoctorId");
+                        .WithMany("reservacita")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("PuppiesPet.Models.Mascota", "Mascota")
-                        .WithMany()
-                        .HasForeignKey("MascotaId");
-
-                    b.HasOne("PuppiesPet.Models.Servicio", "Servicio")
-                        .WithMany()
-                        .HasForeignKey("ServicioId");
+                    b.HasOne("PuppiesPet.Models.Servicio", "servicio")
+                        .WithMany("reservacitaId")
+                        .HasForeignKey("ServicioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Doctor");
 
-                    b.Navigation("Mascota");
+                    b.Navigation("servicio");
+                });
 
-                    b.Navigation("Servicio");
+            modelBuilder.Entity("PuppiesPet.Models.Doctor", b =>
+                {
+                    b.Navigation("reservacita");
+                });
+
+            modelBuilder.Entity("PuppiesPet.Models.Servicio", b =>
+                {
+                    b.Navigation("reservacitaId");
+
                 });
 #pragma warning restore 612, 618
         }

@@ -1,8 +1,11 @@
+@model Contactar
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,33 +20,49 @@
 
     <title>Document</title>
     <style>
-     /*services*/
-        .ourservices{
+        /*services*/
+        .ourservices {
             padding: 100px 0px 60px;
             height: 700px;
         }
-        .ourservices h1{
+
+        .ourservices h1 {
             font-weight: bold;
         }
+
         /*circle*/
-        .rowsetting{
-            margin:15px 0px !important;
+        .rowsetting {
+            margin: 15px 0px !important;
         }
-        .imgsetting{
-            border-radius:50%;
-            height:100px;
+
+        .imgsetting {
+            border-radius: 50%;
+            height: 100px;
             width: 100px;
             background-color: #64AF8B;
         }
-        .fa-map-marked-alt{
-            margin-top:20px;
+
+        .fa-map-marked-alt {
+            margin-top: 20px;
         }
-        .fa-envelope{
-            margin-top:20px;
+
+        .fa-envelope {
+            margin-top: 20px;
         }
-        .fa-phone{
-            margin-top:20px;
+
+        .fa-phone {
+            margin-top: 20px;
         }
+
+        .inputBx input[type="submit"] {
+            background: #1d9b67b0;
+            color: #fff;
+            outline: none;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
         /**/
     </style>
 </head>
@@ -56,7 +75,7 @@
                 <p>Si tienes alguna consulta</p>
                 <h1>Contáctenos</h1>
                 <div class="row rowsetting">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto" >
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
                         <div class="imgsetting d-block m-auto"><i class="fas fa-map-marked-alt fa-3x text-white"></i>
                         </div>
                         <h3>Dirección</h3>
@@ -86,8 +105,11 @@
                                 <div class="col-lg-7 col-md-12 col-sm-12">
                                     <div class="row">
                                         <div class="col-md-12 location">
-                                        <!--Location-->
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9904.320155671066!2d-76.97620733498549!3d-12.154748107354944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b8f71b53ab49%3A0xdd8cbd3088d235f0!2sSan%20Juan%20de%20Miraflores!5e0!3m2!1ses!2spe!4v1622097847639!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                            <!--Location-->
+                                            <iframe
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9904.320155671066!2d-76.97620733498549!3d-12.154748107354944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b8f71b53ab49%3A0xdd8cbd3088d235f0!2sSan%20Juan%20de%20Miraflores!5e0!3m2!1ses!2spe!4v1622097847639!5m2!1ses!2spe"
+                                                width="600" height="450" style="border:0;" allowfullscreen=""
+                                                loading="lazy"></iframe>
                                         </div>
                                     </div>
                                 </div>
@@ -95,25 +117,36 @@
                                     <!--Contenido-->
                                     <div class="row">
                                         <div class="col-md-12 text-center">
-                                            <form class="form text-left pt-3" method="post">
+                                            <form class="form text-left pt-3" method="post" asp-controller="Home"
+                                                asp-action="CrearContacto">
                                                 <div>
-                                                    <label for="exampleFormControlInput1" class="form-label">Nombre y Apellido del Dueño:</label>
-                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ej:Luis Vargas">
+                                                    <label asp-for="Nombres" class="form-label">Nombre y
+                                                        Apellido del Dueño:</label>
+                                                    <input asp-for="Nombres" type="text" class="form-control"
+                                                        id="exampleFormControlInput1" placeholder="Ej:Luis Vargas">
                                                 </div>
                                                 <div>
-                                                    <label for="exampleFormControlInput1" class="form-label">Nombre de la mascota:</label>
-                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ej:Koki">
+                                                    <label asp-for="NombreMascota" for="exampleFormControlInput1"
+                                                        class="form-label">Nombre de
+                                                        la mascota:</label>
+                                                    <input asp-for="NombreMascota" type="text" class="form-control"
+                                                        id="exampleFormControlInput1" placeholder="Ej:Koki">
                                                 </div>
                                                 <div>
-                                                    <label for="exampleFormControlInput1" class="form-label">Correo Electrónico:</label>
-                                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="luis@example.com">
+                                                    <label asp-for="CorreoElectronico" for="exampleFormControlInput1"
+                                                        class="form-label">Correo
+                                                        Electrónico:</label>
+                                                    <input asp-for="CorreoElectronico" type="email" class="form-control"
+                                                        id="exampleFormControlInput1" placeholder="luis@example.com">
                                                 </div>
                                                 <div>
-                                                    <label for="exampleFormControlTextarea1" class="form-label">Asunto:</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                    <label asp-for="Asunto" for="exampleFormControlTextarea1"
+                                                        class="form-label">Asunto:</label>
+                                                    <input asp-for="Asunto" class="form-control"
+                                                        id="exampleFormControlTextarea1" rows="3"></input>
                                                 </div>
-                                                <div class=" enviar pt-3 text-center ">
-                                                    <button type="button" class="btn-primary" value="Submit">Enviar</button>
+                                                <div class=" inputBx form-group enviar pt-3 pb-3 text-center ">
+                                                    <input type="submit" class="btn"></input>
                                                 </div>
                                             </form>
                                         </div>
@@ -127,7 +160,12 @@
         </div>
     </section>
     <!--js-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

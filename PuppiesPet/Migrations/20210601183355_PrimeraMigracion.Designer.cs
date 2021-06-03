@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PuppiesPet.Data;
 
-namespace PuppiesPet.Data.Migrations
+namespace PuppiesPet.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210529094018_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20210601183355_PrimeraMigracion")]
+    partial class PrimeraMigracion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -346,6 +346,33 @@ namespace PuppiesPet.Data.Migrations
                     b.ToTable("t_producto");
                 });
 
+            modelBuilder.Entity("PuppiesPet.Models.Proforma", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.Property<int?>("ProductoId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("text");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("t_proforma");
+                });
+
             modelBuilder.Entity("PuppiesPet.Models.ReservaCita", b =>
                 {
                     b.Property<int>("Id")
@@ -354,7 +381,7 @@ namespace PuppiesPet.Data.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("DoctorId")
+                    b.Property<int>("DoctorId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("Fecha")
@@ -363,20 +390,21 @@ namespace PuppiesPet.Data.Migrations
                     b.Property<DateTime>("Hora")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("MascotaId")
+                    b.Property<string>("NombreMascota")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RazaMascota")
+                        .HasColumnType("text");
+
+                    b.Property<int>("ServicioId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("ServicioId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("UsuarioId")
+                    b.Property<int>("celular")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DoctorId");
-
-                    b.HasIndex("MascotaId");
 
                     b.HasIndex("ServicioId");
 
@@ -523,25 +551,42 @@ namespace PuppiesPet.Data.Migrations
                     b.Navigation("productoId");
                 });
 
+            modelBuilder.Entity("PuppiesPet.Models.Proforma", b =>
+                {
+                    b.HasOne("PuppiesPet.Models.Productos", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId");
+
+                    b.Navigation("Producto");
+                });
+
             modelBuilder.Entity("PuppiesPet.Models.ReservaCita", b =>
                 {
                     b.HasOne("PuppiesPet.Models.Doctor", "Doctor")
-                        .WithMany()
-                        .HasForeignKey("DoctorId");
+                        .WithMany("reservacita")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("PuppiesPet.Models.Mascota", "Mascota")
-                        .WithMany()
-                        .HasForeignKey("MascotaId");
-
-                    b.HasOne("PuppiesPet.Models.Servicio", "Servicio")
-                        .WithMany()
-                        .HasForeignKey("ServicioId");
+                    b.HasOne("PuppiesPet.Models.Servicio", "servicio")
+                        .WithMany("reservacitaId")
+                        .HasForeignKey("ServicioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Doctor");
 
-                    b.Navigation("Mascota");
+                    b.Navigation("servicio");
+                });
 
-                    b.Navigation("Servicio");
+            modelBuilder.Entity("PuppiesPet.Models.Doctor", b =>
+                {
+                    b.Navigation("reservacita");
+                });
+
+            modelBuilder.Entity("PuppiesPet.Models.Servicio", b =>
+                {
+                    b.Navigation("reservacitaId");
                 });
 #pragma warning restore 612, 618
         }
