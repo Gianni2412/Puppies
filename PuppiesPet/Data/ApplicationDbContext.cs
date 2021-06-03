@@ -21,8 +21,6 @@ namespace PuppiesPet.Data
 
         public DbSet<PuppiesPet.Models.Producto> Productos { get; set; }
 
-        public DbSet<PuppiesPet.Models.CategoriaProducto> CategoriaProductos { get; set; }
-
         public DbSet<PuppiesPet.Models.Doctor> Doctores { get; set; }
 
         public DbSet<PuppiesPet.Models.ReservaCita> Reservas { get; set; }

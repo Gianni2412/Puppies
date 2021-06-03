@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PuppiesPet.Models
@@ -22,6 +23,8 @@ namespace PuppiesPet.Models
 
         public int Cantidad { get; set; }
         public String Status { get; set; }
+        public virtual ICollection<Proforma> ProformaItems { get; set; }
+
 
     }
 }

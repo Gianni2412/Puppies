@@ -1,10 +1,10 @@
-@model IEnumerable<plantitas.Models.Producto>
+@model IEnumerable<PuppiesPet.Models.Producto>
 
 @{
     ViewData["Title"] = "Producto";
 }
 
-<h1>Producto</h1>
+<h1>Lista de Productos</h1>
 
 <p>
     <a asp-action="Create">Crear Nuevo Producto</a>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.ImagenName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Detalle</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Borrar</a>
+                <a asp-action="Editar" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Detalle" asp-route-id="@item.Id">Detalle</a> |
+                <a asp-action="Borrar" asp-route-id="@item.Id">Borrar</a>
             </td>
         </tr>
 }
