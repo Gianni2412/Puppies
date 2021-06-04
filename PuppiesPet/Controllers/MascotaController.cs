@@ -42,6 +42,7 @@ namespace PuppiesPet.Controllers
                 mascota.Nombre = ma.Nombre;
                 mascota.Edad = ma.Edad;
                 mascota.Peso = ma.Peso;
+                mascota.fechaNacimiento = ma.fechaNacimiento;
                 mascota.Enfermedades = ma.Enfermedades;
                 _context.SaveChanges();
                 return RedirectToAction("ModificarMascotaConfirmado");
