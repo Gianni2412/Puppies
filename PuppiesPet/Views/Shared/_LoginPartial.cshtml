@@ -9,6 +9,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>login</title>
 </head>
 
@@ -22,27 +24,39 @@
 
             <li class="nav-item">
 
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hola!
                     @User.Identity.Name</a>
 
             </li>
+
             <li class="button">
                 <form asp-area="Identity" asp-page="/Account/Logout"
                 asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
 
-                    <button type="submit" class="btn btn-dark">Salir</button>
+                    <button type="submit" class="btn" style="background-color:#06996A;color:white;">Salir</button>
                 </form>
             </li>
+
+
+            <li class="nav-item left">
+                <a class="nav-link text-white" asp-controller="Proforma" asp-action="Index" style="color: white;"><i
+                    class="fas fa-cart-plus"></i></a>
+            </li>
+
 
         }
         else
         {
             <li class="nav-item">
-                <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Register">Registrarse</a>
+                <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Register"
+                style="color: white;">Registrarse</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Login">Iniciar Sesión</a>
+                <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Login" style="color: white;">Iniciar
+                    Sesión</a>
             </li>
+
+
 
         }
     </ul>

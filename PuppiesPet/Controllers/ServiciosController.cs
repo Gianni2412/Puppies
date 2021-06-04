@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using PuppiesPet.Models;
 using PuppiesPet.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Identity;
 
 namespace PuppiesPet.Controllers
 {
@@ -17,7 +18,10 @@ namespace PuppiesPet.Controllers
 
         private readonly ApplicationDbContext _context;
 
-        public ServiciosController(ILogger<ServiciosController> logger, ApplicationDbContext context)
+
+
+        public ServiciosController(ILogger<ServiciosController> logger, ApplicationDbContext context
+            )
         {
             _logger = logger;
             _context = context;

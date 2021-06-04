@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PuppiesPet.Data;
@@ -12,10 +13,13 @@ namespace PuppiesPet.Controllers
 {
     public class ProductoController : Controller
     {
+        private readonly ILogger<ProductoController> _logger;
+
         private readonly ApplicationDbContext _context;
 
-        public ProductoController(ApplicationDbContext context)
+        public ProductoController(ILogger<ProductoController> logger, ApplicationDbContext context)
         {
+            _logger = logger;
             _context = context;
         }
         public async Task<IActionResult> ListarRegistroProducto()

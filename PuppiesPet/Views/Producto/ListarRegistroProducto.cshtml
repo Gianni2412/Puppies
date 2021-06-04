@@ -7,7 +7,7 @@
 <h1>Lista de Productos</h1>
 
 <p>
-    <a asp-action="Create">Crear Nuevo Producto</a>
+    <a asp-action="RegistrarProducto">Registrar Nuevo Producto</a>
 </p>
 <table class="table">
     <thead>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.ImagenName)
             </td>
             <td>
-                <a asp-action="Editar" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Detalle" asp-route-id="@item.Id">Detalle</a> |
-                <a asp-action="Borrar" asp-route-id="@item.Id">Borrar</a>
+                <a asp-action="EditarProducto" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="DetalleProducto" asp-route-id="@item.Id">Detalle</a> |
+                <a asp-action="BorrarProducto" asp-route-id="@item.Id">Borrar</a>
             </td>
         </tr>
 }

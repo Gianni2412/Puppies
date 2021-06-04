@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>@ViewData["Title"] - PuppiesPetV1</title>
+  <title>@ViewData["Title"] PuppiesPet</title>
   <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="~/css/site.css" />
 
@@ -57,19 +57,12 @@
             <li class="nav-item center">
               <a class="nav-link text-white" class="center" asp-controller="Servicios" asp-action="Index">Servicios</a>
             </li>
+          
             <li class="nav-item center">
-              <a class="nav-link text-white" class="center" asp-controller="Home" asp-action="Contacto">Contactenos</a>
+              <a class="nav-link text-white" class="center" asp-controller="Farmacia"
+                asp-action="Medicamentos">PuppieFarmacia</a>
             </li>
-            <li class="nav-item center">
-              <a class="nav-link text-white" class="center" asp-controller="Farmacia" asp-action="Medicamentos">Farmacia</a>
-            </li>
-            <li class="nav-item center">
-              <a class="nav-link text-white" class="center" asp-controller="Mascota" asp-action="Index">Mis Mascotas</a>
-            </li>
-            <li class="nav-item center">
-              <a class="nav-link text-white" class="center" asp-controller="Mascota" asp-action="Create">Crear
-                Mascotas</a>
-            </li>
+            <partial name="_MenuPartial" />
           </ul>
           <partial name="_LoginPartial" />
         </div>
@@ -82,6 +75,33 @@
       @RenderBody()
     </main>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+
 
   <!--footer-->
   <footer class="border-top footer text-muted">
@@ -129,4 +149,5 @@
   <script src="~/js/site.js" asp-append-version="true"></script>
   @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

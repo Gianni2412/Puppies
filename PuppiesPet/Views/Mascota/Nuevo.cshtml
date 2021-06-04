@@ -1,0 +1,138 @@
+@model Mascota
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Mascota</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <style>
+        .modal-header {
+            background: #4A684A;
+            color: white;
+        }
+
+        .modal-footer .btn-registrar {
+            background: #4A684A;
+            color: white;
+        }
+
+        .modal-footer .btn-cerrar {
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Registrar Mascota
+    </button>
+
+    <!-- Modal para CRUD-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <form action="" id="FormMascota" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Registrar Mi Mascota</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="row g-3">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="Nombre" class="form-label"></label>
+                                    <input asp-for="Nombre" type="text" class="form-control" id="inputNombre">
+                                </div>
+
+                                  <div class="form-group  col-md-4">
+                                    <label asp-for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                    <input asp-for="fechaNacimiento" type="" class="form-control" id="inputDia">
+                                </div> 
+
+                                <div class="form-group col-md-4">
+                                    <label asp-for="Sexo" class="form-label"></label>
+                                    <input asp-for="Sexo" type="text" class="form-control" id="inputSexo">
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class=" form-group col-md-4">
+                                    <label asp-for="Raza" class="form-label"></label>
+                                    <input asp-for="Raza" type="text" class="form-control" id="inputRaza">
+
+                                </div>
+
+                                <div class=" form-group col-md-4">
+                                    <label asp-for="Especie" class="form-label"></label>
+                                    <input asp-for="Especie" type="text" class="form-control" id="inputEspecie">
+
+                                </div>
+
+
+                                <div class=" form-group col-4">
+                                    <label asp-for="Edad" class="form-label"></label>
+                                    <input asp-for="Edad" type="number" class="form-control" id="inputCali">
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class=" form-group col-md-6">
+                                    <label asp-for="Peso" class="form-label"></label>
+                                    <input asp-for="Peso" type="text" class="form-control" id="inputPeso">
+                                </div>
+
+                                <div class=" form-group col-md-6">
+                                    <label asp-for="Enfermedades" class="form-label"></label>
+                                    <input asp-for="Enfermedades" type="text" class="form-control" id="inputEnfe">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <label asp-for="ImagenMascota" class="form-label">Foto de la mascota</label>
+                                    <input asp-for="ImagenMascota" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                                        <label class="form-check-label" for="gridCheck">
+                                            He leído y acepto las políticas de Privacidad
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-cerrar" data-bs-dismiss="modal"><i
+                                class="fas fa-times-circle"></i> Cerrar</button>
+                        <button class="btn btn-primary">Registrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

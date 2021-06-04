@@ -7,15 +7,59 @@
     {
 
 
-        @if (@User.Identity.Name == "admin@gmail.com")
+        @if (UserManager.GetUserName(User).Equals("pupieadministrador@gmail.com"))
         {
             <li class="center">
-                <a class="nav-link colorLetter" asp-area="" asp-controller="Producto" asp-action="Index">Registrar producto</a>
+                <a class="nav-link colorLetter" asp-area="" asp-controller="Producto" asp-action="RegistrarProducto"
+            style="color: white;">Productos</a>
             </li>
             <li class="center">
-                <a class="nav-link colorLetter" asp-area="" asp-controller="Usuario" asp-action="Index">Listar usuarios</a>
+                <a class="nav-link colorLetter" asp-area="" asp-controller="" asp-action="" style="color: white;"> Usuarios</a>
             </li>
+
+            <li class="center">
+                <a class="nav-link colorLetter" asp-area="" asp-controller="Servicios" asp-action="Medicos"
+            style="color: white;">Doctores</a>
+            </li>
+            <li class="center">
+                <a class="nav-link colorLetter" asp-area="" asp-controller="Servicios" asp-action="Servicios"
+            style="color: white;">Servicios</a>
+            </li>
+
         }
+        else
+        {
+
+            <li class="nav-item">
+                <a class="nav-link colorLetter" asp-area="" asp-controller="Servicios" asp-action="Reservar"
+            style="color: white;">Reservar Cita </a>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link colorLetter" asp-area="" asp-controller="Mascota" asp-action="Lista"
+            style="color: white;">Mis Mascotas </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link colorLetter" asp-area="" asp-controller="Proforma" asp-action="Index"
+            style="color: white;">Proforma </a>
+            </li>
+
+
+
+
+
+
+
+        }
+
+    }
+    else
+    {
+        <li class="nav-item center">
+            <a class="nav-link text-white" class="center" asp-controller="Home" asp-action="Contacto"
+            style="color: white;">Contactenos</a>
+        </li>
     }
 
 </ul>
