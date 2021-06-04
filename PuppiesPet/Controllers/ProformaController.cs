@@ -22,7 +22,7 @@ namespace PuppiesPet.Controllers
         // GET: Proforma
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Proforma.ToListAsync());
+            return View(await _context.Proformas.ToListAsync());
         }
 
         // GET: Proforma/Details/5
@@ -33,7 +33,7 @@ namespace PuppiesPet.Controllers
                 return NotFound();
             }
 
-            var proforma = await _context.Proforma
+            var proforma = await _context.Proformas
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (proforma == null)
             {
@@ -73,7 +73,7 @@ namespace PuppiesPet.Controllers
                 return NotFound();
             }
 
-            var proforma = await _context.Proforma.FindAsync(id);
+            var proforma = await _context.Proformas.FindAsync(id);
             if (proforma == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace PuppiesPet.Controllers
                 return NotFound();
             }
 
-            var proforma = await _context.Proforma
+            var proforma = await _context.Proformas
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (proforma == null)
             {
@@ -139,15 +139,15 @@ namespace PuppiesPet.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var proforma = await _context.Proforma.FindAsync(id);
-            _context.Proforma.Remove(proforma);
+            var proforma = await _context.Proformas.FindAsync(id);
+            _context.Proformas.Remove(proforma);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProformaExists(int id)
         {
-            return _context.Proforma.Any(e => e.ID == id);
+            return _context.Proformas.Any(e => e.ID == id);
         }
     }
 }
