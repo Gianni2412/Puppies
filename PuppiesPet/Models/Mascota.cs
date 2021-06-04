@@ -17,7 +17,7 @@ namespace PuppiesPet.Models
 
         public string Raza { get; set; }
 
-       // public DateTime fechaNacimiento { get; set; }
+        public DateTime fechaNacimiento { get; set; }
 
         public string Especie { get; set; }
 
