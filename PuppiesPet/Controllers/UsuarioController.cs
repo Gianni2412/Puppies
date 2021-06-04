@@ -29,10 +29,16 @@ namespace PuppiesPet.Controllers
 
         public IActionResult Listar()
         {
-            return View();
+
+            var usuarios = _context.Usuarios.OrderBy(u => u.Nombres).ToList();
+            return View(usuarios);
+
         }
 
-
+        public IActionResult Registrar()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult Registrar(Usuario u)
         {
