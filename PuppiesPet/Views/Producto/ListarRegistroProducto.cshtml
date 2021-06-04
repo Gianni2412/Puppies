@@ -9,24 +9,20 @@
 <p>
     <a asp-action="RegistrarProducto">Registrar Nuevo Producto</a>
 </p>
-<table class="table">
+<table class=" table table-success table-striped table-bordered table-condensed">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Precio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImagenName)
-            </th>
-            <th></th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+            <th>Operaciones</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+             <td>
+                    <div><img src="@item.ImagenName" style="widht:100px;height:100px;" /></div>
             <td>
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
