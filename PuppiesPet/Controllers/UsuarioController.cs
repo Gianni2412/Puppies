@@ -6,40 +6,52 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PuppiesPet.Models;
-using Microsoft.EntityFrameworkCore;
+using PuppiesPet.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Identity;
 
 namespace PuppiesPet.Controllers
 {
     public class UsuarioController : Controller
     {
         private readonly ILogger<UsuarioController> _logger;
+
         private readonly ApplicationDbContext _context;
 
-        public UsuarioController(ILogger<UsuarioController> logger,
-        ApplicationDbContext context)
+
+
+        public UsuarioController(ILogger<UsuarioController> logger, ApplicationDbContext context)
         {
             _logger = logger;
-             _context = context;
+            _context = context;
         }
 
-        public IActionResult Login()
+
+        public IActionResult Listar()
         {
             return View();
         }
 
 
-        public IActionResult RegistrarUsuario()
+        [HttpPost]
+        public IActionResult Registrar(Usuario u)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(u);
+                _context.SaveChanges();
+                return RedirectToAction("InformacionConfirmacion");
+            }
+            return View();
+
+        }
+
+        public IActionResult InformacionConfirmacion()
         {
             return View();
         }
-        public IActionResult index()
-        {
-            var listUsuarios=_context.Usuario.ToList();
-            return View(listUsuarios);
 
-       //* public async Task<IActionResult> ListarRegistroUsuario()
-      //  {
-       //     return View(await _context.Usuario.ToListAsync());*//
-        }
+
     }
 }
