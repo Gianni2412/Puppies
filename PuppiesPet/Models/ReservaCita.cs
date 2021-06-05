@@ -35,6 +35,13 @@ namespace PuppiesPet.Models
         public string RazaMascota { get; set; }
 
 
+        public string NombreReservar { get; set; }
+
+        public string ApellidoReservar { get; set; }
+
+        public string CorreoReservar { get; set; }
+
+
 
 
 

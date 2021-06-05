@@ -55,6 +55,12 @@
     </style>
 
     <h1>Lista de Mis Mascotas Registradas</h1>
+    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        style="background-color:#00DF95;"><a asp-action="Nuevo" style="color: white;background-color:#00DF95;">
+            Registrar
+            Mascota</a>
+
+    </button>
     @if (Model.Count == 0)
     {
         <div class="alert alert-warming text-center">Aun no hay Mascotas Registradas</div>
@@ -117,21 +123,13 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
