@@ -9,6 +9,7 @@ using PuppiesPet.Models;
 using PuppiesPet.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace PuppiesPet.Controllers
 {
@@ -32,7 +33,10 @@ namespace PuppiesPet.Controllers
             return View();
         }
 
-
+       public async Task<IActionResult> Listar()
+        {
+            return View(await _context.Servicios.ToListAsync());
+        }
 
 
 

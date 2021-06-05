@@ -1,0 +1,87 @@
+@model IEnumerable<PuppiesPet.Models.ReservaCita>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mi informacion</title>
+    <style>
+        .informacion {
+            text-align: center;
+            color: #64AF8B;
+        }
+    </style>
+</head>
+
+<body>
+    @{
+        ViewData["Title"] = "Index";
+    }
+
+    <h1 class="informacion">Citas Registradas</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hora)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreMascota)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RazaMascota)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreReservar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApellidoReservar)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CorreoReservar)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hora)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreMascota)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RazaMascota)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreReservar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApellidoReservar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CorreoReservar)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+
+</html>
