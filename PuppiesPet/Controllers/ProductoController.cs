@@ -13,13 +13,11 @@ namespace PuppiesPet.Controllers
 {
     public class ProductoController : Controller
     {
-        private readonly ILogger<ProductoController> _logger;
 
         private readonly ApplicationDbContext _context;
 
-        public ProductoController(ILogger<ProductoController> logger, ApplicationDbContext context)
+        public ProductoController(ApplicationDbContext context)
         {
-            _logger = logger;
             _context = context;
         }
         public async Task<IActionResult> ListarRegistroProducto()
@@ -62,7 +60,7 @@ namespace PuppiesPet.Controllers
             {
                 _context.Add(producto);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListarRegistroProducto));
             }
             return View(producto);
         }
@@ -113,7 +111,7 @@ namespace PuppiesPet.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListarRegistroProducto));
             }
             return View(producto);
         }
@@ -144,7 +142,7 @@ namespace PuppiesPet.Controllers
             var producto = await _context.Productos.FindAsync(id);
             _context.Productos.Remove(producto);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(ListarRegistroProducto));
         }
 
         private bool ProductoExists(int id)

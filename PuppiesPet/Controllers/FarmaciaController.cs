@@ -39,7 +39,7 @@ namespace PuppiesPet.Controllers
             if(userID == null){
                 ViewData["Message"] = "Por favor debe loguearse antes de agregar un producto";
                 List<Producto> productos = new List<Producto>();
-                return  View("Index",productos);
+                return  View("Medicamentos",productos);
             }else{
                 var producto = await _context.Productos.FindAsync(id);
                 Proforma proforma = new Proforma();
@@ -52,9 +52,6 @@ namespace PuppiesPet.Controllers
                 return  RedirectToAction(nameof(Medicamentos));
             }
 
-        }        
-
-
-
+        }
     }
 }

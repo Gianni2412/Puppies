@@ -2,6 +2,10 @@
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
+@{
+    ViewData["Title"] = "Farmacia Veterinaria";
+
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +21,9 @@
             text-align: center;
             color:#64AF8B ;
         }
+        h1 .logueo{
+            color:#64AF8B ;
+        }
         .btn-carrito{
             background-color: #64AF8B;
             color:white;
@@ -24,14 +31,11 @@
     </style>
 </head>
 <body>
-    @{
-    ViewData["Title"] = "Farmacia Veterinaria";
 
-    }
 
-        <h1 class="farmacia">@ViewData["Title"]</h1>
+        <h1 class="farmacia mt-3">@ViewData["Title"]</h1>
         <div class="container">
-            <h1>@ViewData["Message"]</h1><br>
+            <h1 class="logueo">@ViewData["Message"]</h1><br>
             <div class="row">
             <div class="col">
                 <div id="products" class="mb-3">
@@ -41,8 +45,8 @@
                     <div class="card mb-3">
                         <div class="card-body">
                         <div class="card-img-actions">
-                            <img class="img-responsive" width="96" height="150"
-                            src="/images/@item.ImagenName" alt="@item.ImagenName"  />
+                            <img class="img-responsive" width="100" height="150"
+                            src="/imagenes/@item.ImagenName" alt="@item.ImagenName"  />
                         </div>
                         </div>
                         <div class="card-body">
