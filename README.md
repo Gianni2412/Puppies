@@ -3,7 +3,7 @@ dotnet aspnet-codegenerator Identity -dc PuppiesPet.Data.ApplicationDbContext --
 
 
 
-dotnet aspnet-codegenerator controller -name ProductoController -m Producto -dc PuppiesPet.Data.ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+dotnet aspnet-codegenerator controller -name UsuarioController -m Usuario -dc PuppiesPet.Data.ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
 
 
 
