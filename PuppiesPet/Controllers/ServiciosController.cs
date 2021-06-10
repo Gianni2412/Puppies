@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace PuppiesPet.Controllers
 {
     public class ServiciosController : Controller
@@ -19,13 +20,14 @@ namespace PuppiesPet.Controllers
 
         private readonly ApplicationDbContext _context;
 
+        private readonly UserManager<IdentityUser> _userManager;
 
-
-        public ServiciosController(ILogger<ServiciosController> logger, ApplicationDbContext context
+        public ServiciosController(ILogger<ServiciosController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager
             )
         {
             _logger = logger;
             _context = context;
+              _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -134,6 +136,9 @@ namespace PuppiesPet.Controllers
             return View();
         }
 
+        
+
+      
 
 
         //PARA LISTAR, AGREGAR ,ELIMINAR DOCTORES

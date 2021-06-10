@@ -14,6 +14,8 @@ namespace PuppiesPet.Models
 
         public int Id { get; set; }
 
+        
+
         public DateTime Fecha { get; set; }
 
         public DateTime Hora { get; set; }
@@ -33,7 +35,6 @@ namespace PuppiesPet.Models
         public string NombreMascota { get; set; }
 
         public string RazaMascota { get; set; }
-
 
         public string NombreReservar { get; set; }
 
