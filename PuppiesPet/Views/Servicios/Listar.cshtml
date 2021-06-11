@@ -1,4 +1,4 @@
-@model IEnumerable<PuppiesPet.Models.ReservaCita>
+@model List<ReservaCita>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,82 +6,123 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mi informacion</title>
-    <style>
-        .informacion {
-            text-align: center;
-            color: #64AF8B;
-        }
-    </style>
+    <title>Lista de Citas Registradas</title>
 </head>
 
 <body>
-    @{
-        ViewData["Title"] = "Index";
+    <style>
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15)
+        }
+
+        .content-table thead tr {
+            background-color: #009879;
+            color: white;
+            text-align: left;
+            font-weight: bold;
+
+        }
+
+        .content-table thead th,
+        .content-table td {
+            padding: 12px 15px;
+
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+
+        }
+
+        .content-table tbody tr .active-row {
+            font-weight: bold;
+            color: #009879;
+        }
+    </style>
+
+    <h1>Lista de Citas Registradas</h1>
+    
+    @if (Model.Count == 0)
+    {
+        <div class="alert alert-warming text-center">Aun no hay Citas Registradas</div>
     }
-
-    <h1 class="informacion">Citas Registradas</h1>
-
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Fecha)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Hora)
-                </th>
-
-                <th>
-                    @Html.DisplayNameFor(model => model.NombreMascota)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RazaMascota)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.NombreReservar)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ApellidoReservar)
-                </th>
-
-                <th>
-                    @Html.DisplayNameFor(model => model.CorreoReservar)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    else
+    {
+        <table class="content-table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Fecha)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Hora)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NombreMascota)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RazaMascota)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NombreReservar)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ApellidoReservar)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CorreoReservar)
-                    </td>
+                    <th>Nombres del cliente</th>
+                    <th>Apellidos del cliente</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Servicio</th>
+                    <th>Doctor</th>
+                    <th>Nombre de Mascota</th>
+                     <th>Operaciones</th>
 
                 </tr>
-            }
-        </tbody>
-    </table>
+
+            </thead>
+
+            <tbody>
+                @foreach (var r in Model)
+                {
+                    <tr class="active-row">
+                        
+                        <td>@r.NombreReservar</td>
+                        <td>@r.ApellidoReserva</td>
+                        <td>@r.Fecha</td>
+                        <td>@r.Hora</td>
+                        <td>@r.ViewBag.Services</td>
+                        <td>@r.ViewBag.Doctores</td>
+                        <td>@r.NombreMascota</td>
+                        <td>
+                            <a href="/Servicio/ModificarCita/@r.Id" class=" btn btn-dark">Modificar</a>
+                            <form action="/Servicio/BorrarCita" method="post" class="d-inline-block">
+                                <input type="hidden" name="id" value="@r.Id" />
+
+                                <button class="btn btn-danger">Borrar</button>
+
+                            </form>
+
+
+                        </td>
+
+
+
+                    </tr>
+                }
+            </tbody>
+
+
+        </table>
+    }
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

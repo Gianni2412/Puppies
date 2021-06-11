@@ -35,10 +35,56 @@ namespace PuppiesPet.Controllers
             return View();
         }
 
-       public async Task<IActionResult> Listar()
+      public IActionResult Listar()
         {
-            return View(await _context.Servicios.ToListAsync());
+            var citas = _context.Reservas.OrderBy(x => x.Fecha).ToList();
+            return View(citas);
         }
+
+
+ //PARA MODIFICAR LA INFORMACION DE UNA CITA
+
+    public IActionResult ModificarCita(int id)
+        {
+            var cita = _context.Reservas.Find(id);
+            return View(cita);
+        }
+
+        [HttpPost]
+        public ActionResult ModificarCita(ReservaCita r)
+        {
+            if (ModelState.IsValid)
+            {
+                var cita = _context.Reservas.Find(r.Id);
+            cita.Nombre = r.Nombre;
+                cita.Fecha = r.Fecha;
+                cita.Hora = r.Hora;
+                cita.ViewBag.Services = r.ViewBag.Services ;
+                cita.ViewBag.Doctores = r.ViewBag.Doctores;
+                _context.SaveChanges();
+                return RedirectToAction("ModificarCita");
+            }
+            return View(r);
+        }
+
+        public ActionResult ModificarCita()
+        {
+            return View();
+        }
+
+
+//PARA BORRAR UNA CITA AGENDADAS
+
+  [HttpPost]
+        public IActionResult BorrarCita(int id)
+        {
+            var cita = _context.Reservas.Find(id);
+            _context.Remove(cita);
+            _context.SaveChanges();
+            return RedirectToAction("Listar");
+
+        }
+
 
 
 
