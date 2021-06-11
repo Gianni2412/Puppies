@@ -135,7 +135,7 @@ namespace PuppiesPet.Controllers
         }
 
         // POST: Proforma/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Borrar")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
