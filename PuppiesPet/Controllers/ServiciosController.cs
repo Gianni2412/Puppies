@@ -56,29 +56,26 @@ namespace PuppiesPet.Controllers
             if (ModelState.IsValid)
             {
                 var cita = _context.Reservas.Find(r.Id);
-            cita.Nombre = r.Nombre;
+            
                 cita.Fecha = r.Fecha;
                 cita.Hora = r.Hora;
-                cita.ViewBag.Services = r.ViewBag.Services ;
-                cita.ViewBag.Doctores = r.ViewBag.Doctores;
+                ViewBag.Services = _context.Servicios.ToList().Select(se => new SelectListItem(se.Nombres, se.Id.ToString()));
+                  ViewBag.Medicos = _context.Doctores.ToList().Select(me => new SelectListItem(me.Nombre, me.Id.ToString()));
+                
                 _context.SaveChanges();
-                return RedirectToAction("ModificarCita");
+                return RedirectToAction("Listar");
             }
             return View(r);
         }
 
-        public ActionResult ModificarCita()
-        {
-            return View();
-        }
 
 
 //PARA BORRAR UNA CITA AGENDADAS
 
   [HttpPost]
-        public IActionResult BorrarCita(int id)
+        public IActionResult BorrarCita(int Id)
         {
-            var cita = _context.Reservas.Find(id);
+            var cita = _context.Reservas.Find(Id);
             _context.Remove(cita);
             _context.SaveChanges();
             return RedirectToAction("Listar");

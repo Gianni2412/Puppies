@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace PuppiesPet.Models
 {
@@ -14,10 +15,14 @@ namespace PuppiesPet.Models
 
         public int Id { get; set; }
 
-        
-
+        [Display(Name = "Fecha")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Fecha { get; set; }
 
+
+        [Display(Name = "Hora")]
+        [DataType(DataType.Time)]
         public DateTime Hora { get; set; }
 
         public int celular { get; set; }

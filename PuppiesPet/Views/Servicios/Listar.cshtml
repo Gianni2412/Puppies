@@ -84,15 +84,15 @@
                     <tr class="active-row">
                         
                         <td>@r.NombreReservar</td>
-                        <td>@r.ApellidoReserva</td>
+                        <td>@r.ApellidoReservar</td>
                         <td>@r.Fecha</td>
                         <td>@r.Hora</td>
-                        <td>@r.ViewBag.Services</td>
-                        <td>@r.ViewBag.Doctores</td>
+                        <td>@r.ServicioId</td>
+                        <td>@r.DoctorId</td>
                         <td>@r.NombreMascota</td>
                         <td>
-                            <a href="/Servicio/ModificarCita/@r.Id" class=" btn btn-dark">Modificar</a>
-                            <form action="/Servicio/BorrarCita" method="post" class="d-inline-block">
+                            <a href="/Servicios/ModificarCita/@r.Id" class=" btn btn-dark">Modificar</a>
+                            <form action="/Servicios/BorrarCita" method="post" class="d-inline-block">
                                 <input type="hidden" name="id" value="@r.Id" />
 
                                 <button class="btn btn-danger">Borrar</button>
