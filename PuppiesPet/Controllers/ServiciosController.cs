@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace PuppiesPet.Controllers
 {
     public class ServiciosController : Controller
@@ -19,13 +20,14 @@ namespace PuppiesPet.Controllers
 
         private readonly ApplicationDbContext _context;
 
+        private readonly UserManager<IdentityUser> _userManager;
 
-
-        public ServiciosController(ILogger<ServiciosController> logger, ApplicationDbContext context
+        public ServiciosController(ILogger<ServiciosController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager
             )
         {
             _logger = logger;
             _context = context;
+              _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -33,10 +35,53 @@ namespace PuppiesPet.Controllers
             return View();
         }
 
-       public async Task<IActionResult> Listar()
+      public IActionResult Listar()
         {
-            return View(await _context.Servicios.ToListAsync());
+            var citas = _context.Reservas.OrderBy(x => x.Fecha).ToList();
+            return View(citas);
         }
+
+
+ //PARA MODIFICAR LA INFORMACION DE UNA CITA
+
+    public IActionResult ModificarCita(int id)
+        {
+            var cita = _context.Reservas.Find(id);
+            return View(cita);
+        }
+
+        [HttpPost]
+        public ActionResult ModificarCita(ReservaCita r)
+        {
+            if (ModelState.IsValid)
+            {
+                var cita = _context.Reservas.Find(r.Id);
+            
+                cita.Fecha = r.Fecha;
+                cita.Hora = r.Hora;
+                ViewBag.Services = _context.Servicios.ToList().Select(se => new SelectListItem(se.Nombres, se.Id.ToString()));
+                  ViewBag.Medicos = _context.Doctores.ToList().Select(me => new SelectListItem(me.Nombre, me.Id.ToString()));
+                
+                _context.SaveChanges();
+                return RedirectToAction("Listar");
+            }
+            return View(r);
+        }
+
+
+
+//PARA BORRAR UNA CITA AGENDADAS
+
+  [HttpPost]
+        public IActionResult BorrarCita(int Id)
+        {
+            var cita = _context.Reservas.Find(Id);
+            _context.Remove(cita);
+            _context.SaveChanges();
+            return RedirectToAction("Listar");
+
+        }
+
 
 
 
@@ -134,6 +179,9 @@ namespace PuppiesPet.Controllers
             return View();
         }
 
+        
+
+      
 
 
         //PARA LISTAR, AGREGAR ,ELIMINAR DOCTORES
