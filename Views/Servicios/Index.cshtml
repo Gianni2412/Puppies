@@ -1,4 +1,8 @@
 
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,8 +47,6 @@
 </head>
 
 <body>
-
-    
     <!-- Sección-Servicios-->
     <section id="serviciosgenerales" class="section-1">
         <div class="parallax-overlay">
@@ -58,7 +60,7 @@
             </ul>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6 col-lg-4">
+            <div class="col-md-4 col-sm-6 ">
                 <div class="card">
                     <img class="card-img-top img-fluid" src="imagenes/medicinainterna.png">
                     <div class="card-block">
@@ -117,7 +119,7 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="imagenes/cirugia.png">
+                    <img class="card-img-top img-fluid" src="Iimagenes/cirugia.png">
                     <div class="card-block">
                         <div class="card-title text-center">
                             <h6>Cirugía General</h6>
@@ -198,7 +200,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-6 col-lg-4">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="imagenes/radiologia.png">
+                    <img class="card-img-top img-fluid" src="Imagenes/radiologia.png">
                     <div class="card-block">
                         <div class="card-title text-center">
                             <h6>Radiología Digital</h6>
@@ -208,7 +210,7 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="imagenes/ecografia.png">
+                    <img class="card-img-top img-fluid" src="Imagenes/ecografia.png">
                     <div class="card-block">
                         <div class="card-title text-center">
                             <h6>Ecografía Abdominal</h6>
@@ -218,7 +220,7 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="imagenes/laboratorio.png">
+                    <img class="card-img-top img-fluid" src="Imagenes/laboratorio.png">
                     <div class="card-block">
                         <div class="card-title text-center">
                             <h6>Laboratorio Clínico</h6>
@@ -233,8 +235,7 @@
             </ul>
         </div>
         <div class="reserva pt-4 pb-4 text-center">
-            <button type="button" class="btn" value="Submit"><a asp-action="Reservar"
-                    asp-controller="Servicios">Reservar Cita</a></button>
+            <button type="button" class="btn" value="Submit">Reservar cita</button>
         </div>
         <div>
             <ul>
