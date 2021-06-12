@@ -1,5 +1,7 @@
 @{
-    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "Home Page";
+
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -17,15 +19,16 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Servicios</title>
     <style>
-        /*servicios generales*/
+
+        /servicios generales/
         .section-1 .container-fluid h1 {
             /*color:#64AF8B;   */
             color: white;
         }
-
         .parallax-overlay {
             background-color: rgba(6, 32, 51, .8);
             padding: 50px 0;
+
         }
 
         .card>img {
@@ -41,7 +44,6 @@
         .card-block h6 {
             color: #2C492F;
         }
-
         .reserva button {
             background-color: #B7F8D8;
             font-weight: bold;
@@ -51,12 +53,10 @@
 </head>
 
 <body>
-
-    
     <!-- Sección-Servicios-->
     <section id="serviciosgenerales" class="section-1">
         <div class="parallax-overlay">
-            <div class="container-fluid text-center">
+            <div class="container-fluid text-center pt-5">
                 <h1>Servicios Generales</h1><br>
             </div>
         </div>
@@ -237,11 +237,17 @@
         </div>
         <div>
             <ul>
-             <button type="button"  class="btn btn-primary btn-lg btn-block"><a href="">Block level button</a></button>
+
             </ul>
         </div>
-      
-      
+        <div class="reserva pt-4 pb-4 text-center">
+            <button type="button" class="btn" value="Submit">Reservar cita</button>
+        </div>
+        <div>
+            <ul>
+
+            </ul>
+        </div>
     </section>
 </body>
 
