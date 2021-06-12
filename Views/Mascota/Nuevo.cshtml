@@ -14,12 +14,12 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
         .modal-header {
-            background: #4A684A;
+            background: #4BC195;
             color: white;
         }
 
         .modal-footer .btn-registrar {
-            background: #4A684A;
+            background:  #4BC195;
             color: white;
         }
 
@@ -30,22 +30,21 @@
     </style>
 </head>
 
-<body>
+<body style="background-image: url(https://images.pexels.com/photos/208954/pexels-photo-208954.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: cover;background-attachment: fixed;background-repeat: no-repeat; "> 
+
+
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-        style="color: white;background-color:#00DF95;">
-        Registrar Mascota
-    </button>
+
 
     <!-- Modal para CRUD-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <div >
+        <div class="modal-dialog modal-lg" style="padding-left:40px;">
             <form action="" id="FormMascota" method="POST">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Registrar Mi Mascota</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        
                     </div>
                     <div class="modal-body">
                         <form method="post" class="row g-3">
@@ -56,7 +55,7 @@
                                 </div>
 
                                 <div class="form-group  col-md-4">
-                                    <label asp-for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                    <label  class="form-label">Fecha de Nacimiento</label>
                                     <input asp-for="fechaNacimiento" type="" class="form-control" id="inputDia">
                                 </div>
 
@@ -119,9 +118,8 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-cerrar" data-bs-dismiss="modal"><i
-                                class="fas fa-times-circle"></i> Cerrar</button>
-                        <button class="btn btn-primary">Registrar</button>
+                     
+                        <button class="btn btn-primary btn-registrar" >Registrar</button>
                     </div>
                 </div>
             </form>

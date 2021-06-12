@@ -24,6 +24,10 @@ namespace PuppiesPet.Controllers
         }
 
 
+public IActionResult NuevoConfirmado(){
+    return View();
+}
+
         //PARA MODIFICAR LA INFORMACION DE MI MASCOTA
 
 
@@ -71,7 +75,7 @@ namespace PuppiesPet.Controllers
             {
                 _context.Add(ma);
                 _context.SaveChanges();
-                return RedirectToAction("Lista");
+                return RedirectToAction("NuevoConfirmado");
             }
             return View(ma);
         }
@@ -93,6 +97,8 @@ namespace PuppiesPet.Controllers
             return RedirectToAction("Lista");
 
         }
+        
+     
 
     }
 
