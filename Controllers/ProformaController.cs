@@ -48,6 +48,11 @@ namespace PuppiesPet.Controllers
         {
             return View();
         }
+         public IActionResult Compra()
+        {
+            var proforma=_context.Proformas.ToList();
+            return View(proforma);
+        }
 
         // POST: Proforma/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -149,5 +154,6 @@ namespace PuppiesPet.Controllers
         {
             return _context.Proformas.Any(e => e.ID == id);
         }
+        
     }
 }

@@ -67,9 +67,11 @@
 </head>
 <body>
 
-    <h1 class="titulo2">Carrito</h1>
+    <h1 class="titulo2">Carrito de Compras</h1>
 
-
+    <div>
+        <a  asp-controller="Farmacia" asp-action="Medicamentos" class="btn btn-success"><i class="fas fa-plus"></i> Añadir más productos</a>
+    </div>
     <table class=" table table2">
         <thead>
             <tr>
@@ -106,6 +108,8 @@
     }
         </tbody>
     </table>
-    <a asp-action="#" class=" btn btn-success">Realizar Compra</a>
+    <div class="get-started" style="text-align: center;">
+        <a  style="text-align: center;border-radius: 4px;" class=" btn btn-success" asp-area="" asp-controller="Proforma" asp-action="Compra">Realizar Compra</a>
+    </div>
 </body>
 </html>
