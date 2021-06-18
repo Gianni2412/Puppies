@@ -1,5 +1,11 @@
 @model List<Doctor>
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@{
+    ViewData["Title"] = "Doctores Registrados";
 
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,112 +13,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor</title>
+    <title>Medicamentos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <style>
+        .farmacia {
+            text-align: center;
+            color: #64AF8B;
+        }
+
+        h1 .logueo {
+            color: #64AF8B;
+        }
+
+        .btn-carrito {
+            background-color: #64AF8B;
+            color: white;
+        }
+
+    </style>
 </head>
-
-<style>
-    .content-table {
-        border-collapse: collapse;
-        margin: 25px 0;
-        font-size: 0.9em;
-        min-width: 400px;
-        border-radius: 5px 5px 0 0;
-        overflow: hidden;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15)
-    }
-
-    .content-table thead tr {
-        background-color: #009879;
-        color: white;
-        text-align: left;
-        font-weight: bold;
-
-    }
-
-    .content-table thead th,
-    .content-table td {
-        padding: 12px 15px;
-
-    }
-
-    .content-table tbody tr {
-        border-bottom: 1px solid #dddddd;
-    }
-
-    .content-table tbody tr:nth-of-type(even) {
-        background-color: #f3f3f3;
-    }
-
-    .content-table tbody tr:last-of-type {
-        border-bottom: 2px solid #009879;
-
-    }
-
-    .content-table tbody tr .active-row {
-        font-weight: bold;
-        color: #009879;
-    }
-</style>
 
 <body>
 
-    <a href="/Servicios/NuevoMedico" class="btn btn-success">Añadir Medico</a>
+  <h1 style="color: #64AF8B;text-align:center;">Lista de Doctores</h1>
 
-    <table class="content-table">
-        <thead>
-            <tr>
-                <th>Foto</th>
-                <th>Nombres</th>
-                <th>CMVP</th>
-                <th>especializaciones</th>
+    <a href="/Servicios/NuevoMedico" class="btn btn-success mt-5">Añadir Medico</a>
+    <h1 class="farmacia mt-3">@ViewData["Title"]</h1>
+    <div class="container">
+        <h1 class="">@ViewData["Message"]</h1><br>
+        <div class="row">
+            <div class="col">
+                <div  class="mb-3">
+                    <div class="row">
+                        @foreach (var d in Model)
+                        {
+                            <div class="col-sm-4">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="card-img-actions text-center">
+                                            <img class="img-responsive" width="300" height="300"
+                                            src="@d.Foto" alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">@d.Nombre</h5>
+                                        <p class="card-text">@d.cmvp</p>
+                                        <p class="card-text">@d.especializaciones</p>
+                                         <a href="/Servicios/EditarDoctor/@d.Id" class=" btn btn-dark">Editar</a>
+                                         <form action="/Servicios/BorrarDoctor" method="post" class="d-inline-block">
+                                          <input type="hidden" name="id" value="@d.Id" />
 
-            </tr>
+                                           <button class="btn btn-danger">Borrar</button>
+                                            </form>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        </thead>
-
-        <tbody>
-            @foreach (var d in Model)
-            {
-
-                <tr class="active-row">
-                    <td>@d.Foto</td>
-                    <td>
-                        <div><img src="@d.Foto" style="widht:100px;height:100px;" /></div>
-                    </td>
-                    <td>@d.cmvp</td>
-                    <td>@d.especializaciones</td>
-
-                    <td>
-                        <a href="/Servicios/EditarDoctor/@d.Id" class=" btn btn-dark">Editar</a>
-                        <form action="/Servicios/BorrarDoctor" method="post" class="d-inline-block">
-                            <input type="hidden" name="id" value="@d.Id" />
-
-                            <button class="btn btn-danger">Borrar</button>
-                        </form>
-
-                    </td>
-
-
-
-                </tr>
-
-
-
-            }
-
-
-        </tbody>
-
-        @if (Model.Count == 0)
-        {
-            <tr>
-                <td colspan="2" class="text-center">No se ha encontrado Doctores</td>
-            </tr>
-        }
-
-
-
-    </table>
 </body>
-
 </html>

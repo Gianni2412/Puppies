@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,16 +14,23 @@ namespace PuppiesPet.Controllers
     public class ProformaController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public ProformaController(ApplicationDbContext context)
+        public ProformaController(ApplicationDbContext context,UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Proforma
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Proformas.ToListAsync());
+            var userID = _userManager.GetUserName(User);
+            var items = from o in _context.Proformas select o;
+            items = items.
+                Include(p => p.Producto).
+                Where(s => s.UserID.Equals(userID));
+            return View(await items.ToListAsync());
         }
 
         // GET: Proforma/Details/5
@@ -48,10 +56,14 @@ namespace PuppiesPet.Controllers
         {
             return View();
         }
-         public IActionResult Compra()
+         public async Task<IActionResult> Compra()
         {
-            var proforma=_context.Proformas.ToList();
-            return View(proforma);
+            var userID = _userManager.GetUserName(User);
+            var items = from o in _context.Proformas select o;
+            items = items.
+                Include(p => p.Producto).
+                Where(s => s.UserID.Equals(userID));
+            return View(await items.ToListAsync());
         }
 
         // POST: Proforma/Create

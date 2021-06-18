@@ -239,7 +239,7 @@ namespace PuppiesPet.Controllers
                 var doctor = _context.Doctores.Find(d.Id);
                 doctor.Nombre = d.Nombre;
                 _context.SaveChanges();
-                return RedirectToAction("editadoctorConfirmado");
+                return RedirectToAction("editardoctorConfirmado");
             }
             return View(d);
         }

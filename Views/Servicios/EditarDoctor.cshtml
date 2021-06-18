@@ -1,19 +1,104 @@
-@model Doctor
+@model PuppiesPet.Models.Doctor
+
+@{
+    ViewData["Title"] = "Registro de Doctores";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>Doctores</title>
+    <link rel="stylesheet" href="~/css/estilos.css" />
+    <style>
+        .wrapper1 {
+            max-width: 500px;
+            width: 100%;
+            background: #fff;
+            margin: 20px auto;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125);
+            padding: 30px;
+        }
+
+        .wrapper1 .title1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #2a865b;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .boton1 {
+            background-color: #B7F8D8;
+            color: white;
+            font-weight: bold;
+        }
+
+        .producto1 label {
+            color: #2C492F;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body
+    style="background-image: url(https://st4.depositphotos.com/4764563/22098/v/1600/depositphotos_220985916-stock-illustration-vector-thin-line-art-vet.jpg)">
+    <div class="wrapper1">
+        <h1 class="title1">Modificar Informacion</h1>
+        <div class="row">
+            <div class="col-md-12 producto1">
+                <form asp-action="EditarDoctor" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="control-label"></label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Foto" class="control-label">Foto</label>
+                        <input asp-for="Foto" class="form-control" />
+                        <span asp-validation-for="Foto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="cmvp" class="control-label"></label>
+                        <input asp-for="cmvp" class="form-control" />
+                        <span asp-validation-for="cmvp" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="especializaciones" class="control-label"></label>
+                        <input asp-for="especializaciones" class="form-control" />
+                        <span asp-validation-for="especializaciones" class="text-danger"></span>
+                    </div>
 
 
-<h1 style="text-align:center;color: #64AF8B;">Editar Doctor</h1>
+                    <div class="form-group text-center">
+                        <input type="submit" value="Registrar Doctor" class="btn boton1 " />
+                    </div>
+                </form>
+            </div>
+        </div>
 
-<form action=" " method="post">
-    <input type="hidden" asp-for="Id">
-    <div class="form-group">
-        <label asp-for="Nombre"></label>
-        <input asp-for="Nombre" type="text" class="form-control">
-
+        <div>
+            <a asp-action="Medicos"><i class="fas fa-arrow-alt-circle-left"></i> Regresar a la Lista</a>
+        </div>
     </div>
-    <button class="btn" style="background-color: #00DF95;color:white;">Registrar Cambios</button>
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
 
-
-
-
-
-</form>
+</html>

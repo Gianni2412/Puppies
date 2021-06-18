@@ -86,6 +86,9 @@
             font-weight: bold;
             color: #009879;
         }
+        .fa-check-circle{
+            color:#2a865b;
+        }
     </style>
 </head>
 
@@ -191,6 +194,23 @@
 
             <div>
                 <a asp-action="Index"><i class="fas fa-arrow-alt-circle-left"></i> Regresar al carrito de compra</a>
+            </div>
+             <!-- Button trigger modal -->
+             <div style="text-align: center;">
+                <button type="button" style="text-align: center;border-radius: 4px;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Finalizar Pedido
+                </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <i class="fas fa-check-circle"></i>Tu pedido será enviado pronto.
+                    </div>
+                </div>
+            </div>
             </div>
         </div>    
     @section Scripts {
