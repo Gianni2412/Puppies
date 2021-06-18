@@ -4,55 +4,119 @@
     ViewData["Title"] = "Create";
 }
 
-<h1 style="text-align:center;color: #64AF8B;">Crear</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<h4>Usuario</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nombres" class="control-label"></label>
-                <input asp-for="Nombres" class="form-control" />
-                <span asp-validation-for="Nombres" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Apellidos" class="control-label"></label>
-                <input asp-for="Apellidos" class="form-control" />
-                <span asp-validation-for="Apellidos" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Distrito" class="control-label"></label>
-                <input asp-for="Distrito" class="form-control" />
-                <span asp-validation-for="Distrito" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Direccion" class="control-label"></label>
-                <input asp-for="Direccion" class="form-control" />
-                <span asp-validation-for="Direccion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Celular" class="control-label"></label>
-                <input asp-for="Celular" class="form-control" />
-                <span asp-validation-for="Celular" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CorreoElectronico" class="control-label"></label>
-                <input asp-for="CorreoElectronico" class="form-control" />
-                <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn" style="background-color: #00DF95;color:white" />
-            </div>
-        </form>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear mi Perfil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <style>
+        .modal-header {
+            background: #4BC195;
+            color: white;
+        }
+
+        .modal-footer .btn-registrar {
+            background: #4BC195;
+            color: white;
+        }
+
+        .modal-footer .btn-cerrar {
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body
+    style="background-image: url(https://images.pexels.com/photos/208954/pexels-photo-208954.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-size: cover;background-attachment: fixed;background-repeat: no-repeat; ">
+
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal para CRUD-->
+    <div>
+        <div class="modal-dialog modal-lg" style="padding-left:40px;">
+            <form action="" id="FormMascota" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Registrar Mi Perfil</h5>
+
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="row g-3">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label asp-for="Nombres" class="form-label"></label>
+                                    <input asp-for="Nombres" type="text" class="form-control" id="inputNombre">
+                                </div>
+
+
+                                <div class="form-group col-md-4">
+                                    <label asp-for="Apellidos" class="form-label"></label>
+                                    <input asp-for="Apellidos" type="text" class="form-control" id="inputSexo">
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class=" form-group col-md-4">
+                                    <label asp-for="Distrito" class="form-label"></label>
+                                    <input asp-for="Distrito" type="text" class="form-control" id="inputRaza">
+
+                                </div>
+
+                                <div class=" form-group col-md-4">
+                                    <label asp-for="Direccion" class="form-label"></label>
+                                    <input asp-for="Direccion" type="text" class="form-control" id="inputEspecie">
+
+                                </div>
+
+
+                                <div class=" form-group col-4">
+                                    <label asp-for="Celular" class="form-label"></label>
+                                    <input asp-for="Celular" type="number" class="form-control" id="inputCali">
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <label asp-for="CorreoElectronico" class="form-label">Correo Alternativo</label>
+                                    <input asp-for="CorreoElectronico" class="form-control">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button class="btn btn-primary btn-registrar">Registrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
 
 <div>
     <a asp-action="Index">Regresar a la lista</a>

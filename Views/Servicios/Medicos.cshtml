@@ -16,7 +16,7 @@
         margin: 25px 0;
         font-size: 0.9em;
         min-width: 400px;
-        border-radius :5px 5px 0 0;
+        border-radius: 5px 5px 0 0;
         overflow: hidden;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15)
     }
@@ -61,9 +61,11 @@
     <table class="content-table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-           
+                <th>Foto</th>
+                <th>Nombres</th>
+                <th>CMVP</th>
+                <th>especializaciones</th>
+
             </tr>
 
         </thead>
@@ -73,8 +75,12 @@
             {
 
                 <tr class="active-row">
-                    <td>@d.Id</td>
-                    <td>@d.Nombre</td>
+                    <td>@d.Foto</td>
+                    <td>
+                        <div><img src="@d.Foto" style="widht:100px;height:100px;" /></div>
+                    </td>
+                    <td>@d.cmvp</td>
+                    <td>@d.especializaciones</td>
 
                     <td>
                         <a href="/Servicios/EditarDoctor/@d.Id" class=" btn btn-dark">Editar</a>

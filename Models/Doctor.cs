@@ -15,6 +15,12 @@ namespace PuppiesPet.Models
 
         public string Nombre { get; set; }
 
+        public string cmvp { get; set; }
+
+         public string especializaciones { get; set; }
+
+         public string Foto { get; set; }
+
         public ICollection<ReservaCita> reservacita { get; set; }
     }
 }
