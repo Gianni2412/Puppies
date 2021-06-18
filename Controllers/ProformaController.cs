@@ -56,10 +56,14 @@ namespace PuppiesPet.Controllers
         {
             return View();
         }
-         public IActionResult Compra()
+         public async Task<IActionResult> Compra()
         {
-            var proforma=_context.Proformas.ToList();
-            return View(proforma);
+            var userID = _userManager.GetUserName(User);
+            var items = from o in _context.Proformas select o;
+            items = items.
+                Include(p => p.Producto).
+                Where(s => s.UserID.Equals(userID));
+            return View(await items.ToListAsync());
         }
 
         // POST: Proforma/Create
