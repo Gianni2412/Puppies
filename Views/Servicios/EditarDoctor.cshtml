@@ -1,7 +1,10 @@
 @model Doctor
 
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
 
-<h1 style="text-align:center;color: #64AF8B;">Editar Doctor</h1>
+<h1 style="text-align:center;color: #64AF8B; margin-top:10px;">Editar Doctor</h1>
 
 <form action=" " method="post">
     <input type="hidden" asp-for="Id">
@@ -11,9 +14,4 @@
 
     </div>
     <button class="btn" style="background-color: #00DF95;color:white;">Registrar Cambios</button>
-
-
-
-
-
 </form>
